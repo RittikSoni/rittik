@@ -5,7 +5,7 @@ const HomeMain = () => {
   return (
     <>
       <Image
-        src="/assets/rittik_bg.jpg"
+        src="/assets/Rittik_bg.jpg"
         fill
         className="-z-10 backdrop-blur-md"
         alt="rs"
