@@ -7,7 +7,7 @@ const HomeMain = () => {
       <Image
         src="/assets/Rittik_bg.jpg"
         fill
-        className="-z-10 backdrop-blur-md"
+        className="-z-10 backdrop-blur-md h-screen"
         alt="rs"
       />
       <div id="home" className="w-full h-screen text-center">
