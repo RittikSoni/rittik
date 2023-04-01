@@ -4,19 +4,13 @@ import React from "react";
 const HomeMain = () => {
   return (
     <>
-      {/* <Image
+      <Image
         src="/assets/Rittik_bg.jpg"
         fill
         className="-z-10 backdrop-blur-md h-screen"
         alt="rs"
-      /> */}
+      />
       <div id="home" className="w-full h-screen text-center">
-        <Image
-          src="/assets/Rittik_bg.jpg"
-          fill
-          className="-z-10 backdrop-blur-md h-screen"
-          alt="rs"
-        />
         <div className="max-w-[1240px] w-full h-full mx-auto p-2 justify-center flex items-center">
           <div>
             <div className="flex justify-center items-center py-4">
