@@ -59,7 +59,7 @@ function Navbar() {
             <li className="ml-10 text-sm uppercase hover:border-b">Contact</li>
           </Link>
         </ul>
-        <div onClick={handleNav} className="md:hidden pr-7">
+        <div onClick={handleNav} className="md:hidden pr-2">
           <AiOutlineMenu size={25} />
         </div>
       </div>
