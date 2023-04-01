@@ -11,9 +11,30 @@ export default function Home() {
     <>
       <Head>
         <title>Rittik | Software Engineer</title>
-        <meta name="description" content="Rittik Soni Portfolio" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/assets/rittik_logo.png" />
+        <meta
+          name="description"
+          content="Rittik soni is a software engineer with expertise in web development, mobile app development, and software architecture."
+        />
+        <meta
+          name="keywords"
+          content="software engineering, web development, mobile app development, software architecture, portfolio, Rittik Soni"
+        />
+        <meta property="og:title" content="Rittik Soni | Software Engineer" />
+        <meta
+          property="og:description"
+          content="Rittik soni is a software engineer with expertise in web development, mobile app development, and software architecture."
+        />
+        <meta property="og:url" content="https://rittik.vercel.app/" />
+        <meta name="twitter:title" content="Rittik Soni | Software Engineer" />
+        <meta
+          name="twitter:description"
+          content="Rittik soni is a software engineer with expertise in web development, mobile app development, and software architecture."
+        />
+        <link rel="canonical" href="https://rittik.vercel.app/" />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="Rittik soni" />
       </Head>
       <Navbar />
       <HomeMain />
