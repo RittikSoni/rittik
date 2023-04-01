@@ -32,7 +32,7 @@ export const listOfSkills = [
   {
     id: 5,
     skillName: "Next.js",
-    imgPath: "/assets/programming/NEXTJS.png",
+    imgPath: "/assets/programming/nextjs.png",
   },
   {
     id: 6,
