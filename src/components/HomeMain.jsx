@@ -22,7 +22,7 @@ const HomeMain = () => {
                 className="rounded-full shadow-lg shadow-gray-500"
               />
             </div>
-            <h1 className=" text-white py-4 text-[104px] uppercase tracking-[0.8rem] leading-[6.25rem]">
+            <h1 className=" text-white py-4 max-sm:text-[85px] text-[104px] uppercase tracking-[0.8rem] leading-[6.25rem]">
               Rittik Soni
             </h1>
             <p className="uppercase text-sm tracking-widest text-gray-50 py-2">

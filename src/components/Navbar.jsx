@@ -59,7 +59,7 @@ function Navbar() {
             <li className="ml-10 text-sm uppercase hover:border-b">Contact</li>
           </Link>
         </ul>
-        <div onClick={handleNav} className="md:hidden">
+        <div onClick={handleNav} className="md:hidden pr-7">
           <AiOutlineMenu size={25} />
         </div>
       </div>
@@ -97,7 +97,7 @@ function Navbar() {
               </p>
             </div>
           </div>
-          <div className="py-4 flex flex-col">
+          <div className="py-4 flex flex-col w-full">
             <ul className="uppercase">
               <Link href="/#home" onClick={() => setNav(false)}>
                 <li className="py-4 text-sm">Home</li>
@@ -115,7 +115,7 @@ function Navbar() {
                 <li className="py-4 text-sm">Contact</li>
               </Link>
             </ul>
-            <div className="pt-40">
+            <div className="pt-10">
               <p className="uppercase tracking-widest">Let&apos;s Connect</p>
               <div className="flex items-center justify-between my-4 w-full sm:w-[80%]">
                 <Link href={linkedIn} onClick={() => setNav(false)}>
