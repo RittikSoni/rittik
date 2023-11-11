@@ -6,9 +6,20 @@ import rsAahc from "../../public/assets/projects/rs_aahc.png";
 import rsDoc from "../../public/assets/projects/rs_doc.png";
 import rsMessengerPegasus from "../../public/assets/projects/rs_pegasus_messenger.png";
 import rsNetflix from "../../public/assets/projects/rs_netflix.png";
+import rsEcommerceApp from "../../public/assets/projects/rs_ecommerce_app.png";
 import rsWeatherForecast from "../../public/assets/projects/rs_weather_forecast.png";
 
 export const projectData = [
+  {
+    id: 1,
+    title: "Babyhood: E-Commerce App",
+    description:
+      "Babyhood: A cross-platform e-commerce app for Android, iOS, web, and soon Windows. Elevate user experience with seamless order tracking, lightning-fast real-time search, and an extensive product catalog. Ensuring secure transactions on every device. Delivering innovation and versatility in every click. 🌐📱💻 ",
+    image: rsEcommerceApp,
+    projectLink:
+      "https://play.google.com/store/apps/details?id=com.kingrittik.babyhood",
+    sourceCode: null,
+  },
   {
     id: 1,
     title: "Netflix clone (iOS & Android)",
