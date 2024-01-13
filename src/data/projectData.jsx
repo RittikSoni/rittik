@@ -1,23 +1,22 @@
-import project1 from "../../public/assets/Rittik_bg.jpg";
-import rsCustomVideo from "../../public/assets/projects/rs_custom_video.png";
+import rsCustomVideo from "../../public/assets/projects/rs_custom_video.jpg";
 import rsPredictionOfDementia from "../../public/assets/projects/rs_prediction_of_dementia.png";
 import rsPredictionOfDiseases from "../../public/assets/projects/rs_prediction_of_diseases.png";
-import rsAahc from "../../public/assets/projects/rs_aahc.png";
-import rsDoc from "../../public/assets/projects/rs_doc.png";
-import rsMessengerPegasus from "../../public/assets/projects/rs_pegasus_messenger.png";
-import rsNetflix from "../../public/assets/projects/rs_netflix.png";
-import rsEcommerceApp from "../../public/assets/projects/rs_ecommerce_app.png";
-import rsWeatherForecast from "../../public/assets/projects/rs_weather_forecast.png";
+import rsAahc from "../../public/assets/projects/rs_aahc.jpg";
+import rsDoc from "../../public/assets/projects/rs_meet.jpg";
+import rsMessengerPegasus from "../../public/assets/projects/rs_pegasus_messenger.jpg";
+import rsNetflix from "../../public/assets/projects/rs_netflix_clone.jpg";
+import rsEcommerceApp from "../../public/assets/projects/rs_elpisverse_ecommerce_app.jpg";
+import rsWeatherForecast from "../../public/assets/projects/rs_weather_forecast.jpg";
 
 export const projectData = [
   {
     id: 1,
-    title: "Babyhood: E-Commerce App",
+    title: "Elpisverse: E-Commerce App",
     description:
-      "Babyhood: A cross-platform e-commerce app for Android, iOS, web, and soon Windows. Elevate user experience with seamless order tracking, lightning-fast real-time search, and an extensive product catalog. Ensuring secure transactions on every device. Delivering innovation and versatility in every click. 🌐📱💻 ",
+      "Elpisverse: A cross-platform e-commerce app for Android, iOS, web, and soon Windows. Elevate user experience with seamless order tracking, lightning-fast real-time search, and an extensive product catalog. Ensuring secure transactions on every device. Delivering innovation and versatility in every click. 🌐📱💻 ",
     image: rsEcommerceApp,
     projectLink:
-      "https://play.google.com/store/apps/details?id=com.kingrittik.babyhood",
+      "https://play.google.com/store/apps/details?id=com.kingrittik.elpis",
     sourceCode: null,
   },
   {
@@ -50,7 +49,8 @@ export const projectData = [
   {
     id: 3,
     title: "AAHC (Web, iOS & Android)",
-    description: "",
+    description:
+      "Crafting Connectivity: Architect of AAHC App, Your Window to Tailored Business Excellence. Immerse yourself in the dynamic world of AAHC through this customized business app. Seamlessly stay updated with the latest company news, explore in-built videos, and indulge in personalized jewelry designs. Elevate your experience with certificate verification, job postings, and more. This app isn't just about features; it's a personalized journey into the heart of AAHC's innovation. Join me in reshaping how you connect with business excellence. Your business, personalized – let's redefine engagement together.",
     image: rsAahc,
     projectLink: null,
     sourceCode: "https://github.com/RittikSoni/AAHC",
