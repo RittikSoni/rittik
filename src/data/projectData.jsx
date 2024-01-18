@@ -7,6 +7,7 @@ import rsMessengerPegasus from "../../public/assets/projects/rs_pegasus_messenge
 import rsNetflix from "../../public/assets/projects/rs_netflix_clone.jpg";
 import rsEcommerceApp from "../../public/assets/projects/rs_elpisverse_ecommerce_app.jpg";
 import rsWeatherForecast from "../../public/assets/projects/rs_weather_forecast.jpg";
+import rsAdgl from "../../public/assets/projects/rittik_adgl.jpg";
 
 export const projectData = [
   {
@@ -90,6 +91,16 @@ export const projectData = [
       "An app that allows users to view their medical reports such as X-ray, MRI, and doctor's prescriptions. It requires internet connectivity and login credentials for security. Doctors can also add new reports to specific patients' records. The app provides a secure and efficient way to manage medical records conveniently from mobile devices.",
     image: rsDoc,
     projectLink: null,
+    sourceCode: null,
+  },
+  {
+    id: 8,
+    title: "ADGL",
+    description:
+      "ADGL: Your pocket-sized diamonds, gemstone, Jewelry verifier! Experience seamless, on-the-go authentication for diamonds and jewelry. Inspired by tech leaders like Google and Apple, ADGL ensures precision and security with its streamlined interface and advanced algorithms. Elevate your jewelry authenticity checks with ADGL.",
+    image: rsAdgl,
+    projectLink:
+      "https://play.google.com/store/apps/details?id=com.kingrittik.adgl",
     sourceCode: null,
   },
 ];

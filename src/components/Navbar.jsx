@@ -29,11 +29,11 @@ function Navbar() {
     <div
       className={
         shadow
-          ? "w-full fixed h-15 shadow-xl shadow-cyan-700 z-[100] bg-white text-black"
+          ? "w-full fixed h-15 shadow-xl shadow-cyan-700 z-[100] bg-black bg-opacity-25 text-white"
           : "w-full fixed h-15 z-[100]"
       }
     >
-      <div className="flex justify-between items-center w-full h-full p-2 2xl:p-16">
+      <div className="flex justify-between items-center w-full h-full  p-2 2xl:p-16 backdrop-blur-md">
         <Link href="/#home">
           <Image
             src="/assets/rittik_logo.png"
