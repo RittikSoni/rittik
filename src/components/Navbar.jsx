@@ -2,9 +2,15 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from "react-icons/ai";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn, FaYoutube } from "react-icons/fa";
 import { BsGooglePlay } from "react-icons/bs";
-import { github, googlePlay, linkedIn, mail } from "@/data/socialLinks";
+import {
+  github,
+  googlePlay,
+  linkedIn,
+  mail,
+  youtube,
+} from "@/data/socialLinks";
 
 function Navbar() {
   const [nav, setNav] = useState(false);
@@ -33,7 +39,7 @@ function Navbar() {
           : "w-full fixed h-15 z-[100]"
       }
     >
-      <div className="flex justify-between items-center w-full h-full  p-2 2xl:p-16 backdrop-blur-md">
+      <div className="flex justify-between items-center w-full h-full  p-2 backdrop-blur-md">
         <Link href="/#home">
           <Image
             src="/assets/rittik_logo.png"
@@ -118,22 +124,31 @@ function Navbar() {
             <div className="pt-10">
               <p className="uppercase tracking-widest">Let&apos;s Connect</p>
               <div className="flex items-center justify-between my-4 w-full sm:w-[80%]">
-                <Link href={linkedIn} onClick={() => setNav(false)}>
+                <Link href={youtube} onClick={() => setNav(false)} target="#">
+                  <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
+                    <FaYoutube />
+                  </div>
+                </Link>
+                <Link href={linkedIn} onClick={() => setNav(false)} target="#">
                   <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
                     <FaLinkedinIn />
                   </div>
                 </Link>
-                <Link href={github} onClick={() => setNav(false)}>
+                <Link href={github} onClick={() => setNav(false)} target="#">
                   <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
                     <FaGithub />
                   </div>
                 </Link>
-                <Link href={mail} onClick={() => setNav(false)}>
+                <Link href={mail} onClick={() => setNav(false)} target="#">
                   <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
                     <AiOutlineMail />
                   </div>
                 </Link>
-                <Link href={googlePlay} onClick={() => setNav(false)}>
+                <Link
+                  href={googlePlay}
+                  onClick={() => setNav(false)}
+                  target="#"
+                >
                   <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
                     <BsGooglePlay />
                   </div>

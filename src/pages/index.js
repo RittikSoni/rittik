@@ -19,7 +19,7 @@ export default function Home() {
         />
         <meta
           name="keywords"
-          content="software engineering, web development, mobile app development, software architecture, portfolio, Rittik Soni"
+          content="rittik, software engineering, web development, mobile app development, software architecture, portfolio, Rittik Soni"
         />
         <meta property="og:title" content="Rittik Soni | Software Engineer" />
         <meta

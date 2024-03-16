@@ -2,11 +2,24 @@ import React from "react";
 import Link from "next/link";
 import { FaRegPaperPlane } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
-import { BsGithub, BsGooglePlay, BsPeopleFill } from "react-icons/bs";
+import {
+  BsGithub,
+  BsGooglePlay,
+  BsPeopleFill,
+  BsYoutube,
+} from "react-icons/bs";
 import { MdMail } from "react-icons/md";
-import { github, googlePlay, linkedIn, mail } from "@/data/socialLinks";
+import {
+  github,
+  googlePlay,
+  linkedIn,
+  mail,
+  youtube,
+} from "@/data/socialLinks";
 
 const Contact = () => {
+  const date = new Date();
+  const year = date.getFullYear();
   return (
     <div id="contact" className="w-full text-center bg-black">
       <div className="text-cyan-500 max-w-[1240px] mx-auto py-16 pz-2 ">
@@ -38,19 +51,26 @@ const Contact = () => {
             </p>
             <hr className="border-cyan-400 border-2 w-12 mx-auto" />
             <div className="flex justify-evenly">
-              <Link href={linkedIn} className="hover:text-cyan-700">
+              <Link href={youtube} className="hover:text-cyan-700" target="#">
+                <BsYoutube size={25} />
+              </Link>
+              <Link href={linkedIn} className="hover:text-cyan-700" target="#">
                 <FaLinkedinIn size={25} />
               </Link>
-              <Link href={github} className="hover:text-cyan-700">
+              <Link href={github} className="hover:text-cyan-700" target="#">
                 <BsGithub size={25} />
               </Link>
-              <Link href={googlePlay} className="hover:text-cyan-700">
+              <Link
+                href={googlePlay}
+                className="hover:text-cyan-700"
+                target="#"
+              >
                 <BsGooglePlay size={25} />
               </Link>
             </div>
           </div>
         </div>
-        <div className="text-gray-500 mt-12">© 2023 Rittik Soni</div>
+        <div className="text-gray-500 mt-12">© {year} Rittik Soni</div>
       </div>
     </div>
   );
