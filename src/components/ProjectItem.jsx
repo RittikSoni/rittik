@@ -31,14 +31,14 @@ const ProjectItem = ({
         </p>
         <div className="max-w-[12rem] mx-auto">
           {projectLink != null ? (
-            <Link href={projectLink}>
+            <Link href={projectLink} target="_blank" rel="noopener noreferrer">
               <p className="max-w-fit mx-auto my-2 lg:my-2 md:my-2 uppercase p-1 px-4 text-center rounded bg-white text-gray-900 font-bold text-sm lg:text-lg md:text-lg cursor-pointer">
                 Access it
               </p>
             </Link>
           ) : null}
           {sourceCode ? (
-            <Link href={sourceCode}>
+            <Link href={sourceCode} target="_blank" rel="noopener noreferrer">
               <p className="max-w-fit mx-auto my-1 lg:my-2 md:my-2 uppercase p-1 px-4 text-center rounded bg-white text-gray-900 font-bold text-sm lg:text-lg md:text-lg cursor-pointer">
                 Source code
               </p>

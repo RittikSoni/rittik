@@ -5,6 +5,8 @@ import rsAahc from "../../public/assets/projects/rs_aahc.jpg";
 import rsDoc from "../../public/assets/projects/rs_meet.jpg";
 import rsMessengerPegasus from "../../public/assets/projects/rs_pegasus_messenger.jpg";
 import rsNetflix from "../../public/assets/projects/rs_netflix_clone.jpg";
+import rsTinder from "../../public/assets/projects/rs_tinder_clone.png";
+import rsMotherEarthGame from "../../public/assets/projects/rs_mother_earth_game.png";
 import rsEcommerceApp from "../../public/assets/projects/rs_elpisverse_ecommerce_app.jpg";
 import rsWeatherForecast from "../../public/assets/projects/rs_weather_forecast.jpg";
 import rsAdgl from "../../public/assets/projects/rittik_adgl.jpg";
@@ -28,6 +30,24 @@ export const projectData = [
     image: rsNetflix,
     projectLink: null,
     sourceCode: "https://github.com/RittikSoni/Android-iOS/tree/main/netflix",
+  },
+  {
+    id: 1,
+    title: "Tinder clone (iOS & Android)",
+    description:
+      "Tinder-like app featuring swipe card functionality for seamless liking and disliking.",
+    image: rsTinder,
+    projectLink: null,
+    sourceCode: "https://github.com/RittikSoni/Tinder-clone",
+  },
+  {
+    id: 1,
+    title: "Mother Earth Game (Web, iOS & Android)",
+    description:
+      "Enter 'Mother Earth,' a game rooted in UN's SDG goals. Join the global movement for sustainability, one interactive challenge at a time.",
+    image: rsMotherEarthGame,
+    projectLink: "https://youtu.be/Go7SRUBSsPk?si=Ex4HUwpzPOUo1RRi",
+    sourceCode: "https://github.com/RittikSoni/Mother-Earth",
   },
   {
     id: 2,
