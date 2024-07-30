@@ -3,6 +3,7 @@ import Contact from "@/components/Contact";
 import HomeMain from "@/components/HomeMain";
 import Navbar from "@/components/Navbar";
 import Projects from "@/components/Projects";
+import ResearchPublications from "@/components/r&d/ResearchAndPublications";
 import Skills from "@/components/Skills";
 import Head from "next/head";
 
@@ -41,6 +42,7 @@ export default function Home() {
       <About />
       <Skills />
       <Projects />
+      <ResearchPublications />
       <Contact />
     </>
   );

@@ -61,6 +61,9 @@ function Navbar() {
           <Link href="/#projects">
             <li className="ml-10 text-sm uppercase hover:border-b">Projects</li>
           </Link>
+          <Link href="/#r&d">
+            <li className="ml-10 text-sm uppercase hover:border-b">R&D</li>
+          </Link>
           <Link href="/#contact">
             <li className="ml-10 text-sm uppercase hover:border-b">Contact</li>
           </Link>
@@ -103,22 +106,25 @@ function Navbar() {
               </p>
             </div>
           </div>
-          <div className="py-4 flex flex-col w-full">
+          <div className="flex flex-col w-full">
             <ul className="uppercase">
               <Link href="/#home" onClick={() => setNav(false)}>
-                <li className="py-4 text-sm">Home</li>
+                <li className="py-3 text-sm">Home</li>
               </Link>
               <Link href="/#about" onClick={() => setNav(false)}>
-                <li className="py-4 text-sm">About</li>
+                <li className="py-3 text-sm">About</li>
               </Link>
               <Link href="/#skills" onClick={() => setNav(false)}>
-                <li className="py-4 text-sm">Skills</li>
+                <li className="py-3 text-sm">Skills</li>
               </Link>
               <Link href="/#projects" onClick={() => setNav(false)}>
-                <li className="py-4 text-sm">Projects</li>
+                <li className="py-3 text-sm">Projects</li>
+              </Link>
+              <Link href="/#r&d" onClick={() => setNav(false)}>
+                <li className="py-3 text-sm">R&D</li>
               </Link>
               <Link href="/#contact" onClick={() => setNav(false)}>
-                <li className="py-4 text-sm">Contact</li>
+                <li className="py-3 text-sm">Contact</li>
               </Link>
             </ul>
             <div className="pt-10">
