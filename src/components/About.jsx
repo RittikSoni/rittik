@@ -15,6 +15,14 @@ const About = () => {
             exploring new technologies and creating innovative projects.
           </h2>
           <p className="p-4 text-gray-500">
+            During my college time, I wasn&apos;t just coding – I was building.
+            One of my ambitious projects was a complex e-commerce platform
+            designed to handle over a million users, with real-time features
+            like order review, advanced search, and filtering – similar in scale
+            to Amazon. This experience ignited my passion for crafting efficient
+            and user-friendly software that truly empowers users.
+          </p>
+          <p className="p-4 text-gray-500">
             In addition to my love of coding, I have many other interests that
             keep me busy.I love playing physical games like soccer, badminton,
             etc whenever I have the chance. I&apos;m also an avid traveler and

@@ -61,8 +61,8 @@ export const listOfSkills = [
   },
   {
     id: 10,
-    skillName: "Storybook",
-    imgPath: "/assets/programming/storybook.png",
+    skillName: "AWS",
+    imgPath: "/assets/programming/aws.png",
   },
   {
     id: 11,
