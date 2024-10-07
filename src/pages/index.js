@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Projects from "@/components/Projects";
 import ResearchPublications from "@/components/r&d/ResearchAndPublications";
 import Skills from "@/components/Skills";
+import Videos from "@/components/videos/videos";
 import Head from "next/head";
 
 export default function Home() {
@@ -42,6 +43,7 @@ export default function Home() {
       <About />
       <Skills />
       <Projects />
+      <Videos />
       <ResearchPublications />
       <Contact />
     </>

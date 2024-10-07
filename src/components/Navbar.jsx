@@ -61,6 +61,9 @@ function Navbar() {
           <Link href="/#projects">
             <li className="ml-10 text-sm uppercase hover:border-b">Projects</li>
           </Link>
+          <Link href="/#tech-posts">
+            <li className="ml-10 text-sm uppercase hover:border-b">Videos</li>
+          </Link>
           <Link href="/#r&d">
             <li className="ml-10 text-sm uppercase hover:border-b">R&D</li>
           </Link>
@@ -100,7 +103,7 @@ function Navbar() {
                 <AiOutlineClose />
               </div>
             </div>
-            <div className="my-4 border-b border-gray-400 ">
+            <div className="my-2 border-b border-gray-400 ">
               <p className="w-[85%] md:w-[90%] py-4">
                 Software Engineer | Lifelong learner
               </p>
@@ -119,6 +122,9 @@ function Navbar() {
               </Link>
               <Link href="/#projects" onClick={() => setNav(false)}>
                 <li className="py-3 text-sm">Projects</li>
+              </Link>
+              <Link href="/#tech-posts" onClick={() => setNav(false)}>
+                <li className="py-3 text-sm">Videos</li>
               </Link>
               <Link href="/#r&d" onClick={() => setNav(false)}>
                 <li className="py-3 text-sm">R&D</li>
