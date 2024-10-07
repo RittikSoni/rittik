@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { FaRegPaperPlane } from "react-icons/fa";
-import { FaLinkedinIn } from "react-icons/fa";
+import { FaLinkedinIn, FaMediumM } from "react-icons/fa";
 import {
   BsGithub,
   BsGooglePlay,
@@ -14,6 +14,7 @@ import {
   googlePlay,
   linkedIn,
   mail,
+  medium,
   youtube,
 } from "@/data/socialLinks";
 
@@ -53,6 +54,9 @@ const Contact = () => {
             <div className="flex justify-evenly">
               <Link href={youtube} className="hover:text-cyan-700" target="#">
                 <BsYoutube size={25} />
+              </Link>
+              <Link href={medium} className="hover:text-cyan-700" target="#">
+                <FaMediumM size={25} />
               </Link>
               <Link href={linkedIn} className="hover:text-cyan-700" target="#">
                 <FaLinkedinIn size={25} />
