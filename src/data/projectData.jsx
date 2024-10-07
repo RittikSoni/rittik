@@ -7,6 +7,7 @@ import rsMessengerPegasus from "../../public/assets/projects/rs_pegasus_messenge
 import rsNetflix from "../../public/assets/projects/rs_netflix_clone.jpg";
 import rsTinder from "../../public/assets/projects/rs_tinder_clone.png";
 import rsMotherEarthGame from "../../public/assets/projects/rs_mother_earth_game.png";
+import rsAiEjustice from "../../public/assets/projects/ai_ejustice.png";
 import rsEcommerceApp from "../../public/assets/projects/rs_elpisverse_ecommerce_app.jpg";
 import rsWeatherForecast from "../../public/assets/projects/rs_weather_forecast.jpg";
 import rsAdgl from "../../public/assets/projects/rittik_adgl.jpg";
@@ -39,6 +40,15 @@ export const projectData = [
     image: rsTinder,
     projectLink: null,
     sourceCode: "https://github.com/RittikSoni/Tinder-clone",
+  },
+  {
+    id: 1,
+    title: "A.I. E-Justice (iOS, Android, Windows & Web)",
+    description:
+      "AI Powered E-Justice is a groundbreaking app that revolutionizes legal accessibility. Harnessing the advanced Gemini API, it intelligently analyzes user inquiries, delivering precise legal insights tailored to diverse jurisdictions, transforming legal complexities into clear, actionable knowledge.",
+    image: rsAiEjustice,
+    projectLink: "https://ai.google.dev/competition/projects/ai-e-justice",
+    sourceCode: "https://github.com/RittikSoni/AI-Powered-E-Justice",
   },
   {
     id: 1,
