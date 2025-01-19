@@ -64,6 +64,9 @@ function Navbar() {
           <Link href="/#tech-posts">
             <li className="ml-10 text-sm uppercase hover:border-b">Videos</li>
           </Link>
+          <Link href="/#open-source">
+            <li className="ml-10 text-sm uppercase hover:border-b">OSS</li>
+          </Link>
           <Link href="/#r&d">
             <li className="ml-10 text-sm uppercase hover:border-b">R&D</li>
           </Link>
@@ -75,6 +78,7 @@ function Navbar() {
           <AiOutlineMenu size={25} />
         </div>
       </div>
+      {/* Mobile */}
       <div
         className={
           nav ? "md:hidden fixed left-0 top-0 w-full h-screen bg-black/70" : ""
