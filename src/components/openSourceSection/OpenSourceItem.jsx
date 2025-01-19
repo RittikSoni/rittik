@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 const OpenSourceItem = ({ OpenSourceItem }) => {
   return (
     <motion.div
-      key={OpenSourceItem.id}
       className="mx-4 relative bg-white shadow-lg shadow-cyan-500 hover:shadow-cyan-600 rounded-lg p-6 hover:shadow-xl transition group overflow-hidden"
       whileHover={{ scale: 1.05 }}
       initial={{ opacity: 0, y: 20 }}

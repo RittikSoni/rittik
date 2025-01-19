@@ -17,7 +17,7 @@ const OpenSourceContributions = () => {
 
         <div className="grid md:grid-cols-2 gap-8">
           {openSourceData.map((e) => {
-            return <OpenSourceItem OpenSourceItem={e} />;
+            return <OpenSourceItem key={e.id} OpenSourceItem={e} />;
           })}
         </div>
         <div className="my-10 mx-2">
