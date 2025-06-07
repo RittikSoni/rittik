@@ -32,7 +32,7 @@ const OpenSourceItem = ({ OpenSourceItem }) => {
           rel="noopener noreferrer"
         >
           <p className="px-4 py-2 bg-cyan-500 text-white rounded-md shadow hover:bg-teal-500 transition">
-            View on Pub.dev
+            Pub.dev
           </p>
         </Link>
         <Link
@@ -41,7 +41,16 @@ const OpenSourceItem = ({ OpenSourceItem }) => {
           rel="noopener noreferrer"
         >
           <p className="px-4 py-2 bg-gray-200 text-gray-800 rounded-md shadow hover:bg-gray-300 transition">
-            View on GitHub
+            GitHub
+          </p>
+        </Link>
+        <Link
+          href={OpenSourceItem.links.docs}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <p className="px-4 py-2 bg-gray-200 text-gray-800 rounded-md shadow hover:bg-gray-300 transition">
+            Docs
           </p>
         </Link>
       </div>

@@ -11,17 +11,39 @@ import rsAiEjustice from "../../public/assets/projects/ai_ejustice.png";
 import rsEcommerceApp from "../../public/assets/projects/rs_elpisverse_ecommerce_app.jpg";
 import rsWeatherForecast from "../../public/assets/projects/rs_weather_forecast.jpg";
 import rsAdgl from "../../public/assets/projects/rittik_adgl.jpg";
+import rsDoctorsAI from "../../public/assets/projects/doctors_ai_king_rittik.jpg";
+import rsBloom from "../../public/assets/projects/bloom_kingrittik.jpg";
 
 export const projectData = [
   {
     id: 1,
-    title: "Elpisverse: E-Commerce App",
+    title: "USG&J: E-Commerce App",
     description:
-      "Elpisverse: A cross-platform e-commerce app for Android, iOS, web, and soon Windows. Elevate user experience with seamless order tracking, lightning-fast real-time search, and an extensive product catalog. Ensuring secure transactions on every device. Delivering innovation and versatility in every click. 🌐📱💻 ",
+      "USG&J: A cross-platform e-commerce app for Android, iOS, web, and soon Windows. Elevate user experience with seamless order tracking, lightning-fast real-time search, and an extensive product catalog. Ensuring secure transactions on every device. Delivering innovation and versatility in every click. 🌐📱💻 ",
     image: rsEcommerceApp,
     projectLink:
       "https://play.google.com/store/apps/details?id=com.kingrittik.elpis",
     sourceCode: null,
+  },
+  {
+    id: 14,
+    title: "Doctors AI (Early Access)",
+    description:
+      "Doctors AI: A cross-platform AI-powered app for Android, iOS, web, Windows, and macOS. It offers a comprehensive platform for doctors and health professionals, featuring AI-driven diagnosis, secure medical records, Get concise, AI-generated summaries of medical data, & many more. Empowering healthcare with cutting-edge technology.",
+    image: rsDoctorsAI,
+    projectLink:
+      "https://play.google.com/store/apps/details?id=com.kingrittik.doctors",
+    sourceCode: null,
+  },
+
+  {
+    id: 15,
+    title: "Bloom: Record & Share recordings easily!",
+    description:
+      "🌸 Bloom — Effortlessly record and share your screen. An open-source alternative to Loom.",
+    image: rsBloom,
+    projectLink: null,
+    sourceCode: "https://github.com/RittikSoni/Bloom",
   },
   {
     id: 2,

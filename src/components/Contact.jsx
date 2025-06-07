@@ -7,9 +7,11 @@ import {
   BsGooglePlay,
   BsPeopleFill,
   BsYoutube,
+  BsDiscord,
 } from "react-icons/bs";
 import { MdMail } from "react-icons/md";
 import {
+  discord,
   github,
   googlePlay,
   linkedIn,
@@ -54,6 +56,9 @@ const Contact = () => {
             <div className="flex justify-evenly">
               <Link href={youtube} className="hover:text-cyan-700" target="#">
                 <BsYoutube size={25} />
+              </Link>
+              <Link href={discord} className="hover:text-cyan-700" target="#">
+                <BsDiscord size={25} />
               </Link>
               <Link href={medium} className="hover:text-cyan-700" target="#">
                 <FaMediumM size={25} />
