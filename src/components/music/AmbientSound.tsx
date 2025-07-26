@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Howl } from "howler";
 import { FiVolumeX, FiVolume2 } from "react-icons/fi";
+import { motion } from "framer-motion";
 
 declare global {
   interface Window {
@@ -14,14 +15,17 @@ declare global {
   }
 }
 
-type Env = "rain" | "snow" | "wind" | "lofi" | "ocean";
+type Env = "rain" | "snow" | "wind" | "lofi" | "ocean" | "forest" | "airport";
+const baseUrl = "https://cdn.jsdelivr.net/gh/RittikSoni/assets@main/music/";
 
 const audioFiles: Record<Env, string> = {
-  rain: "/audio/rain.mp3",
-  snow: "/audio/snow.mp3",
-  wind: "/audio/christmas.mp3",
-  lofi: "/audio/christmas.mp3",
-  ocean: "/audio/snow.mp3",
+  rain: `${baseUrl}rain.mp3`,
+  snow: `${baseUrl}snow.mp3`,
+  wind: `${baseUrl}wind.mp3`,
+  lofi: `/audio/lofi.mp3`,
+  ocean: `${baseUrl}ocean.mp3`,
+  forest: `${baseUrl}forest.mp3`,
+  airport: `${baseUrl}airport.mp3`,
 };
 
 export default function AmbientEffects() {
@@ -35,6 +39,14 @@ export default function AmbientEffects() {
       src: [audioFiles[env]],
       loop: true,
       html5: true,
+
+      onload: () => {
+        const mediaNode = (player as any)._sounds?.[0]
+          ?._node as HTMLMediaElement;
+        if (mediaNode) {
+          mediaNode.crossOrigin = "anonymous";
+        }
+      },
       volume: muted ? 0 : 0.5,
     });
     sound.play();
@@ -82,39 +94,16 @@ export default function AmbientEffects() {
       }
     };
 
-    // const setupVisualizer = () => {
-    //   if (env !== "lofi" || !player) return;
-    //   const AudioCtx = (window.AudioContext ||
-    //     (window as any).webkitAudioContext) as {
-    //     new (): AudioContext;
-    //   };
-    //   const audioCtx = new AudioCtx();
-    //   const srcNode = audioCtx.createMediaElementSource(
-    //     player["_sounds"][0]._node as HTMLMediaElement
-    //   );
-    //   analyser = audioCtx.createAnalyser();
-    //   srcNode.connect(analyser);
-    //   analyser.connect(audioCtx.destination);
-    //   analyser.fftSize = 128;
-    //   dataArray = new Uint8Array(analyser.frequencyBinCount);
-    // };
-
     const setupVisualizer = () => {
       if (env !== "lofi" || !player) return;
-
-      const AudioCtx =
-        window.AudioContext || (window as any).webkitAudioContext;
+      const AudioCtx = (window.AudioContext ||
+        (window as any).webkitAudioContext) as {
+        new (): AudioContext;
+      };
       const audioCtx = new AudioCtx();
-      const sound = player._sounds[0];
-      const node = sound && sound._node;
-
-      // Validate it's an HTMLMediaElement
-      if (!(node instanceof HTMLMediaElement)) {
-        console.warn("Not a valid HTMLMediaElement:", node);
-        return;
-      }
-
-      const srcNode = audioCtx.createMediaElementSource(node);
+      const srcNode = audioCtx.createMediaElementSource(
+        player["_sounds"][0]._node as HTMLMediaElement
+      );
       analyser = audioCtx.createAnalyser();
       srcNode.connect(analyser);
       analyser.connect(audioCtx.destination);
@@ -151,23 +140,44 @@ export default function AmbientEffects() {
           }
         }
       }
+      if (env === "lofi") {
+        if (analyser) {
+          //   Lofi Visualizer
+          analyser.getByteFrequencyData(dataArray as Uint8Array<ArrayBuffer>);
+          const barWidth = width / dataArray.length;
+          for (let i = 0; i < dataArray.length; i++) {
+            const barHeight = (dataArray[i] / 255) * 50;
+            ctx.fillStyle = `rgba(2, 250, 151, ${dataArray[i] / 255})`;
+            ctx.fillRect(
+              i * barWidth,
+              height - barHeight,
+              barWidth - 2,
+              barHeight
+            );
+          }
+        }
+        // Lofi Note Animation
+        const time = Date.now() * 0.2;
 
-      if (env === "lofi" && analyser) {
-        analyser.getByteFrequencyData(dataArray as Uint8Array<ArrayBuffer>);
-        const barWidth = width / dataArray.length;
-        for (let i = 0; i < dataArray.length; i++) {
-          const barHeight = (dataArray[i] / 255) * height;
-          ctx.fillStyle = `rgba(255, 255, 255, ${dataArray[i] / 255})`;
-          ctx.fillRect(
-            i * barWidth,
-            height - barHeight,
-            barWidth - 2,
-            barHeight
-          );
+        const noteCount = 30;
+
+        for (let i = 0; i < noteCount; i++) {
+          const freqValue = dataArray[i % dataArray.length] / 255;
+          const x = Math.sin(i + time / 1000) * width * 0.4 + width / 2;
+          const y = (Math.cos(i + time / 1400) + 1) * height * 0.4;
+
+          const size = freqValue * 20 + 4;
+          const opacity = Math.min(1, freqValue + 0.3);
+
+          ctx.beginPath();
+          ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
+          ctx.font = `${size}px serif`;
+          ctx.fillText("♪", x, y);
+          ctx.closePath();
         }
       }
 
-      // Ocean Effect Enhancer with Bubbles, Shimmer, and Night Theme
+      // Ocean Effect Enhancer with Bubbles, Shimmer
       if (env === "ocean") {
         const time = Date.now() * 0.001;
         const baseY = height;
@@ -181,10 +191,10 @@ export default function AmbientEffects() {
 
         // Night Theme Background
         const nightGradient = ctx.createLinearGradient(0, 0, 0, height);
+
         nightGradient.addColorStop(0, "rgba(255, 255, 255, 0)");
         nightGradient.addColorStop(1, "rgba(255, 255, 255, 0)");
-        // nightGradient.addColorStop(0, "#0a0f2c");
-        // nightGradient.addColorStop(1, "#000814");
+
         ctx.fillStyle = nightGradient;
         ctx.fillRect(0, 0, width, height);
 
@@ -263,6 +273,9 @@ export default function AmbientEffects() {
         ctx.restore();
       }
 
+      if (env === "forest") {
+      }
+
       animationId = requestAnimationFrame(draw);
     };
 
@@ -283,35 +296,76 @@ export default function AmbientEffects() {
     };
   }, [env, player]);
 
+  const sounds = ["rain", "snow", "wind", "lofi", "ocean", "forest", "airport"];
+
+  const [showControls, setShowControls] = useState(true);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const goingDown = currentScrollY > lastScrollY.current;
+      setShowControls(!goingDown);
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
       <canvas
         ref={canvasRef}
-        className="fixed top-0 left-0 w-full h-full pointer-events-none z-100"
+        className="fixed top-0 left-0 w-full h-full pointer-events-none z-[100]"
       />
 
-      <div className="fixed bottom-4 left-4 flex space-x-2">
-        {["rain", "snow", "wind", "lofi", "ocean"].map((e) => (
-          <button
+      <motion.div
+        className="
+                    fixed bottom-4 left-1/2 -translate-x-1/2 z-[101]
+                    px-4 py-2
+                    border border-black/20
+                    bg-black/10 backdrop-blur-2xl
+                    rounded-[28px] shadow-xl
+                    flex items-center justify-center flex-wrap
+                    gap-2 sm:gap-3
+                    w-full max-w-[90%] sm:max-w-full sm:w-fit
+                    transition-opacity duration-300
+                "
+        animate={{ opacity: showControls ? 1 : 0 }}
+        style={{ pointerEvents: showControls ? "auto" : "none" }}
+      >
+        {sounds.map((e) => (
+          <motion.button
             key={e}
             onClick={() => setEnv(e as Env)}
-            className={`px-3 py-1 rounded-xl transition ${
+            whileHover={{ scale: 1.06 }}
+            whileTap={{ scale: 0.94 }}
+            className={`px-4 py-1.5 text-sm sm:text-base rounded-[18px] capitalize font-medium transition-all duration-300 border backdrop-blur-xl shadow-inner text-white ${
               env === e
-                ? "bg-emerald-500 text-white shadow-lg"
-                : "bg-white/70 hover:bg-white/90"
+                ? "bg-white/10 ring-2 ring-white/20 border-white/10"
+                : "bg-white/5 hover:bg-white/10 border-white/5"
             }`}
+            style={{
+              textShadow: "0 0 6px rgba(0,0,0,0.3)",
+            }}
           >
-            {e.charAt(0).toUpperCase() + e.slice(1)}
-          </button>
+            {e}
+          </motion.button>
         ))}
-        <button
+
+        <motion.button
           onClick={() => setMuted((m) => !m)}
-          className="px-3 py-1 rounded-xl bg-white/70 hover:bg-white/90 shadow-lg"
-          aria-label={muted ? "Unmute audio" : "Mute audio"}
+          whileTap={{ scale: 0.9 }}
+          whileHover={{ scale: 1.05 }}
+          className="p-2 rounded-full bg-black/10 hover:bg-black/20 border border-black/20 text-white shadow-md backdrop-blur-xl"
+          style={{
+            textShadow: "0 0 6px rgba(0,0,0,0.4)",
+          }}
         >
-          {muted ? <FiVolumeX size={20} /> : <FiVolume2 size={20} />}
-        </button>
-      </div>
+          {muted ? <FiVolumeX size={18} /> : <FiVolume2 size={18} />}
+        </motion.button>
+      </motion.div>
     </>
   );
 }
