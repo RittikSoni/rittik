@@ -329,7 +329,7 @@ export default function AmbientEffects() {
                  px-4 py-2 bg-black/10 border border-white/20
                  backdrop-blur-2xl rounded-[28px] shadow-xl
                  flex items-center justify-center gap-2
-                 transition-all duration-300"
+                 transition-all duration-300 flex-wrap"
         animate={{ opacity: showControls ? 1 : 0 }}
         style={{ pointerEvents: showControls ? "auto" : "none" }}
       >
