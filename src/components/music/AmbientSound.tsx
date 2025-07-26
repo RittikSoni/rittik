@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Howl } from "howler";
-import { FiVolumeX, FiVolume2 } from "react-icons/fi";
+import { FiPower, FiVolumeX, FiVolume2 } from "react-icons/fi";
 import { motion } from "framer-motion";
 
 declare global {
@@ -15,7 +15,15 @@ declare global {
   }
 }
 
-type Env = "rain" | "snow" | "wind" | "lofi" | "ocean" | "forest" | "airport";
+type Env =
+  | "rain"
+  | "snow"
+  | "wind"
+  | "lofi"
+  | "ocean"
+  | "forest"
+  | "airport"
+  | "off";
 const baseUrl = "https://cdn.jsdelivr.net/gh/RittikSoni/assets@main/music/";
 
 const audioFiles: Record<Env, string> = {
@@ -26,11 +34,12 @@ const audioFiles: Record<Env, string> = {
   ocean: `${baseUrl}ocean.mp3`,
   forest: `${baseUrl}forest.mp3`,
   airport: `${baseUrl}airport.mp3`,
+  off: "",
 };
 
 export default function AmbientEffects() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [env, setEnv] = useState<Env>("rain");
+  const [env, setEnv] = useState<Env>("off");
   const [muted, setMuted] = useState(true);
   const [player, setPlayer] = useState<Howl | null>(null);
 
@@ -39,14 +48,6 @@ export default function AmbientEffects() {
       src: [audioFiles[env]],
       loop: true,
       html5: true,
-
-      onload: () => {
-        const mediaNode = (player as any)._sounds?.[0]
-          ?._node as HTMLMediaElement;
-        if (mediaNode) {
-          mediaNode.crossOrigin = "anonymous";
-        }
-      },
       volume: muted ? 0 : 0.5,
     });
     sound.play();
@@ -300,6 +301,7 @@ export default function AmbientEffects() {
 
   const [showControls, setShowControls] = useState(true);
   const lastScrollY = useRef(0);
+  const [ambientOn, setAmbientOn] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -315,56 +317,76 @@ export default function AmbientEffects() {
 
   return (
     <>
+      {/* Canvas */}
       <canvas
         ref={canvasRef}
         className="fixed top-0 left-0 w-full h-full pointer-events-none z-[100]"
       />
 
+      {/* Toggle + Controls */}
       <motion.div
-        className="
-                    fixed bottom-4 left-1/2 -translate-x-1/2 z-[101]
-                    px-4 py-2
-                    border border-black/20
-                    bg-black/10 backdrop-blur-2xl
-                    rounded-[28px] shadow-xl
-                    flex items-center justify-center flex-wrap
-                    gap-2 sm:gap-3
-                    w-full max-w-[90%] sm:max-w-full sm:w-fit
-                    transition-opacity duration-300
-                "
+        className="fixed bottom-4 left-1/2 -translate-x-1/2 z-[101]
+                 px-4 py-2 bg-black/10 border border-white/20
+                 backdrop-blur-2xl rounded-[28px] shadow-xl
+                 flex items-center justify-center gap-2
+                 transition-all duration-300"
         animate={{ opacity: showControls ? 1 : 0 }}
         style={{ pointerEvents: showControls ? "auto" : "none" }}
       >
-        {sounds.map((e) => (
-          <motion.button
-            key={e}
-            onClick={() => setEnv(e as Env)}
-            whileHover={{ scale: 1.06 }}
-            whileTap={{ scale: 0.94 }}
-            className={`px-4 py-1.5 text-sm sm:text-base rounded-[18px] capitalize font-medium transition-all duration-300 border backdrop-blur-xl shadow-inner text-white ${
-              env === e
-                ? "bg-white/10 ring-2 ring-white/20 border-white/10"
-                : "bg-white/5 hover:bg-white/10 border-white/5"
-            }`}
-            style={{
-              textShadow: "0 0 6px rgba(0,0,0,0.3)",
-            }}
-          >
-            {e}
-          </motion.button>
-        ))}
-
+        {/* Power Toggle */}
         <motion.button
-          onClick={() => setMuted((m) => !m)}
+          onClick={() => {
+            setAmbientOn((prev) => !prev);
+            if (ambientOn) setEnv("off");
+          }}
           whileTap={{ scale: 0.9 }}
           whileHover={{ scale: 1.05 }}
-          className="p-2 rounded-full bg-black/10 hover:bg-black/20 border border-black/20 text-white shadow-md backdrop-blur-xl"
-          style={{
-            textShadow: "0 0 6px rgba(0,0,0,0.4)",
-          }}
+          className="p-2 rounded-full bg-black/20 hover:bg-black/30 border border-white/20 text-white shadow flex items-center gap-2"
         >
-          {muted ? <FiVolumeX size={18} /> : <FiVolume2 size={18} />}
+          {ambientOn ? (
+            <FiPower size={18} className="text-red-600" />
+          ) : (
+            <FiPower size={18} className="text-green-500" />
+          )}
+          {ambientOn ? "" : "Ambient"}
         </motion.button>
+
+        {/* Show when enabled */}
+        {ambientOn && (
+          <>
+            {sounds.map((e) => (
+              <motion.button
+                key={e}
+                onClick={() => setEnv(e as Env)}
+                whileHover={{ scale: 1.06 }}
+                whileTap={{ scale: 0.94 }}
+                className={`px-3 py-1.5 text-sm rounded-[18px] capitalize font-medium transition-all border backdrop-blur-xl text-white ${
+                  env === e
+                    ? "bg-white/10 ring-2 ring-white/20 border-white/10"
+                    : "bg-white/5 hover:bg-white/10 border-white/5"
+                }`}
+                style={{
+                  textShadow: "0 0 6px rgba(0,0,0,0.3)",
+                }}
+              >
+                {e}
+              </motion.button>
+            ))}
+
+            {/* Mute Button */}
+            <motion.button
+              onClick={() => setMuted((m) => !m)}
+              whileTap={{ scale: 0.9 }}
+              whileHover={{ scale: 1.05 }}
+              className="p-2 rounded-full bg-black/10 hover:bg-black/20 border border-black/20 text-white shadow-md backdrop-blur-xl"
+              style={{
+                textShadow: "0 0 6px rgba(0,0,0,0.4)",
+              }}
+            >
+              {muted ? <FiVolumeX size={18} /> : <FiVolume2 size={18} />}
+            </motion.button>
+          </>
+        )}
       </motion.div>
     </>
   );
