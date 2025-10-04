@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const ResearchItem = ({ title, description, image, accessLink, alt }) => {
   return (
-    <div className="relative flex items-center justify-center h-auto w-full shadow-xl shadow-cyan-700 rounded-xl p-4 group hover:bg-gradient-to-b from-cyan-300 to-cyan-700">
+    <div className="relative flex items-center justify-center h-auto w-full shadow-xl shadow-cyan-700 rounded-xl p-4 group hover:bg-linear-to-b from-cyan-300 to-cyan-700">
       <Image
         src={image}
         alt={alt}
@@ -22,7 +22,7 @@ const ResearchItem = ({ title, description, image, accessLink, alt }) => {
         >
           {description}
         </p>
-        <div className="max-w-[12rem] mx-auto">
+        <div className="max-w-48 mx-auto">
           {accessLink != null ? (
             <Link href={accessLink} target="_blank" rel="noopener noreferrer">
               <p className="max-w-fit mx-auto my-2 lg:my-2 md:my-2 uppercase p-1 px-4 text-center rounded bg-white text-gray-900 font-bold text-sm lg:text-lg md:text-lg cursor-pointer">

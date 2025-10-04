@@ -30,8 +30,8 @@ const Contact = () => {
           <FaRegPaperPlane size={40} />
         </div>
         <p className="text-3xl tracking-widest pb-12 pt-4">Connect with me!</p>
-        <div className="grid lg:grid-cols-2 md:grid-cols-2 gap-8 md:h-[15rem] lg:h-[15rem] h-[25rem] p-4">
-          <div className="bg-white w-full h-[100%] rounded border-b-cyan-500 border-4 grid">
+        <div className="grid lg:grid-cols-2 md:grid-cols-2 gap-8 md:h-60 lg:h-60 h-100 p-4">
+          <div className="bg-white w-full h-full rounded border-b-cyan-500 border-4 grid">
             <div className="grid justify-center items-center content-center pt-2">
               <MdMail size={30} />
             </div>
@@ -49,7 +49,7 @@ const Contact = () => {
               </p>
             </Link>
           </div>
-          <div className="bg-white w-full h-[100%] rounded border-b-cyan-500 border-4 grid">
+          <div className="bg-white w-full h-full rounded border-b-cyan-500 border-4 grid">
             <div className="grid justify-center items-center content-center pt-2">
               <BsPeopleFill size={30} />
             </div>

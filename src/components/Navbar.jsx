@@ -35,8 +35,8 @@ function Navbar() {
     <div
       className={
         shadow
-          ? "w-full fixed h-15 shadow-xl shadow-cyan-700 z-[100] bg-black bg-opacity-25 text-white"
-          : "w-full fixed h-15 z-[100]"
+          ? "w-full fixed h-15 shadow-xl shadow-cyan-700 z-100 bg-black bg-opacity-25 text-white"
+          : "w-full fixed h-15 z-100"
       }
     >
       <div className="flex justify-between items-center w-full h-full  p-2 backdrop-blur-md">
@@ -88,7 +88,7 @@ function Navbar() {
           className={
             nav
               ? "text-cyan-900 fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#ecf0f3] p-10 ease-in duration-500"
-              : "fixed left-[-100%] top-0 p-10 ease-in duration-500"
+              : "fixed -left-full top-0 p-10 ease-in duration-500"
           }
         >
           <div>

@@ -12,7 +12,7 @@ const OpenSourceItem = ({ OpenSourceItem }) => {
       transition={{ duration: 0.3, delay: OpenSourceItem.id * 0.1 }}
     >
       {/* Glassy Reflection */}
-      <div className="absolute inset-0 bg-gradient-to-br from-transparent to-cyan-500 opacity-0 group-hover:opacity-20 transition duration-300 pointer-events-none cursor-progress" />
+      <div className="absolute inset-0 bg-linear-to-br from-transparent to-cyan-500 opacity-0 group-hover:opacity-20 transition duration-300 pointer-events-none cursor-progress" />
 
       {/* Content */}
       <h2 className="text-xl font-bold text-gray-800 mb-2">

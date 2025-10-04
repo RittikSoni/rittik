@@ -5,7 +5,7 @@ const About = () => {
   return (
     <div
       id="about"
-      className="w-full md:min-h-[h-screen] p-2 flex items-center py-16 bg-gradient-to-b from-black to-gray-800"
+      className="w-full md:min-h-[h-screen] p-2 flex items-center py-16 bg-linear-to-b from-black to-gray-800"
     >
       <div className="max-w-[1240px] m-auto md:grid grid-cols-3 gap-8">
         <div className="col-span-2 text-black">

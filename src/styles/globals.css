@@ -1,15 +1,14 @@
 @import "tailwindcss";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-html {
-  --scroll-behavior: smooth !important;
-  scroll-behavior: smooth !important;
-  font-family: "Nunito";
-  ::selection {
-    background-color: #39e6e7;
-    color: #000000;
+@layer utilities {
+  html {
+    --scroll-behavior: smooth !important;
+    scroll-behavior: smooth !important;
+    font-family: "Nunito";
+    ::selection {
+      background-color: #39e6e7;
+      color: #000000;
+    }
   }
 }
 

@@ -830,7 +830,7 @@ export default function AmbientEffects() {
       {/* Canvas */}
       <canvas
         ref={canvasRef}
-        className="fixed top-0 left-0 w-full h-full pointer-events-none z-[100]"
+        className="fixed top-0 left-0 w-full h-full pointer-events-none z-100"
       />
 
       {/* If hide, add a button to show the controls */}
@@ -838,7 +838,7 @@ export default function AmbientEffects() {
         onClick={() => setShowControls((prev) => !prev)}
         whileTap={{ scale: 0.9 }}
         whileHover={{ scale: 1.05 }}
-        className="p-2 rounded-full bg-black/10 hover:bg-black/20 border border-black/20 text-white shadow-md backdrop-blur-xl fixed bottom-4 right-4 z-[101]"
+        className="p-2 rounded-full bg-black/10 hover:bg-black/20 border border-black/20 text-white shadow-md backdrop-blur-xl fixed bottom-4 right-4 z-101"
         style={{
           textShadow: "0 0 6px rgba(0,0,0,0.4)",
         }}
@@ -853,7 +853,7 @@ export default function AmbientEffects() {
 
       {/* Toggle + Controls */}
       <motion.div
-        className="fixed bottom-4 left-1/2 -translate-x-1/2 z-[101]
+        className="fixed bottom-4 left-1/2 -translate-x-1/2 z-101
                  px-4 py-2 bg-black/10 border border-white/20
                  backdrop-blur-2xl rounded-[28px] shadow-xl
                  flex items-center justify-center gap-2
