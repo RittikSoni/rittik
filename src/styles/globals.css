@@ -1,3 +1,4 @@
+@import "tailwindcss";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,9 +6,9 @@
 html {
   --scroll-behavior: smooth !important;
   scroll-behavior: smooth !important;
+  font-family: "Nunito";
   ::selection {
     background-color: #39e6e7;
-    /* background-color: #00f9aa; */
     color: #000000;
   }
 }
@@ -37,8 +38,4 @@ html {
   li {
     @apply cursor-pointer;
   }
-
-  /* button {
-    @apply shadow-xl shadow-gray-400 rounded-xl uppercase bg-gradient-to-r from-[#5651e5] to-[#709dff] text-white;
-  } */
 }
