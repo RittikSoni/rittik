@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Howl } from "howler";
-import { FiPower, FiVolumeX, FiVolume2 } from "react-icons/fi";
+import { FiPower, FiVolumeX, FiVolume2, FiX, FiMusic } from "react-icons/fi";
 import { motion } from "framer-motion";
 
 declare global {
@@ -276,6 +276,8 @@ export default function AmbientEffects() {
 
       if (env === "forest") {
       }
+      if (env === "airport") {
+      }
 
       animationId = requestAnimationFrame(draw);
     };
@@ -303,11 +305,17 @@ export default function AmbientEffects() {
   const lastScrollY = useRef(0);
   const [ambientOn, setAmbientOn] = useState(false);
 
+  // if scroll down, hide the controls
+  // else if scroll up, don't do anything to the controls
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       const goingDown = currentScrollY > lastScrollY.current;
-      setShowControls(!goingDown);
+      if (goingDown) {
+        setShowControls(false);
+      } else {
+        // setShowControls(true);
+      }
       lastScrollY.current = currentScrollY;
     };
 
@@ -322,6 +330,24 @@ export default function AmbientEffects() {
         ref={canvasRef}
         className="fixed top-0 left-0 w-full h-full pointer-events-none z-[100]"
       />
+
+      {/* If hide, add a button to show the controls */}
+      <motion.button
+        onClick={() => setShowControls((prev) => !prev)}
+        whileTap={{ scale: 0.9 }}
+        whileHover={{ scale: 1.05 }}
+        className="p-2 rounded-full bg-black/10 hover:bg-black/20 border border-black/20 text-white shadow-md backdrop-blur-xl fixed bottom-4 right-4 z-[101]"
+        style={{
+          textShadow: "0 0 6px rgba(0,0,0,0.4)",
+        }}
+        animate={{ opacity: !showControls ? 1 : 0 }}
+      >
+        {/* music icon with label in row*/}
+        <div className="flex items-center gap-2">
+          <FiMusic size={18} />
+          Show Ambient
+        </div>
+      </motion.button>
 
       {/* Toggle + Controls */}
       <motion.div
@@ -384,6 +410,20 @@ export default function AmbientEffects() {
               }}
             >
               {muted ? <FiVolumeX size={18} /> : <FiVolume2 size={18} />}
+            </motion.button>
+
+            {/* Hide Button */}
+            <motion.button
+              onClick={() => setShowControls((prev) => !prev)}
+              whileTap={{ scale: 0.9 }}
+              whileHover={{ scale: 1.05 }}
+              className="p-2 rounded-full bg-black/10 hover:bg-black/20 border border-black/20 text-white shadow-md backdrop-blur-xl"
+              style={{
+                textShadow: "0 0 6px rgba(0,0,0,0.4)",
+              }}
+            >
+              {/* hide icon */}
+              <FiX size={18} />
             </motion.button>
           </>
         )}
