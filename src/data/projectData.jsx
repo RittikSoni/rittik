@@ -2,7 +2,6 @@ import rsCustomVideo from "../../public/assets/projects/rs_custom_video.jpg";
 import rsPredictionOfDementia from "../../public/assets/projects/rs_prediction_of_dementia.png";
 import rsPredictionOfDiseases from "../../public/assets/projects/rs_prediction_of_diseases.png";
 import rsAahc from "../../public/assets/projects/rs_aahc.jpg";
-import rsDoc from "../../public/assets/projects/rs_meet.jpg";
 import rsMessengerPegasus from "../../public/assets/projects/rs_pegasus_messenger.jpg";
 import rsNetflix from "../../public/assets/projects/rs_netflix_clone.jpg";
 import rsTinder from "../../public/assets/projects/rs_tinder_clone.png";
@@ -13,6 +12,7 @@ import rsWeatherForecast from "../../public/assets/projects/rs_weather_forecast.
 import rsAdgl from "../../public/assets/projects/rittik_adgl.jpg";
 import rsDoctorsAI from "../../public/assets/projects/doctors_ai_king_rittik.jpg";
 import rsBloom from "../../public/assets/projects/bloom_kingrittik.jpg";
+import rsPatientAI from "../../public/assets/projects/patient_ai.png";
 
 export const projectData = [
   {
@@ -24,17 +24,30 @@ export const projectData = [
     projectLink:
       "https://play.google.com/store/apps/details?id=com.kingrittik.elpis",
     sourceCode: null,
+    author: "Rittik Soni",
   },
-  {
-    id: 14,
-    title: "Doctors AI (Early Access)",
-    description:
-      "Doctors AI: A cross-platform AI-powered app for Android, iOS, web, Windows, and macOS. It offers a comprehensive platform for doctors and health professionals, featuring AI-driven diagnosis, secure medical records, Get concise, AI-generated summaries of medical data, & many more. Empowering healthcare with cutting-edge technology.",
-    image: rsDoctorsAI,
-    projectLink:
-      "https://play.google.com/store/apps/details?id=com.kingrittik.doctors",
-    sourceCode: null,
-  },
+    {
+      id: 14,
+      title: "Doctors AI (Early Access)",
+      description:
+        "Doctors AI: A cross-platform AI-powered app for Android, iOS, web, Windows, and macOS. It offers a comprehensive platform for doctors and health professionals, featuring AI-driven diagnosis, secure medical records, Get concise, AI-generated summaries of medical data, & many more. Empowering healthcare with cutting-edge technology.",
+      image: rsDoctorsAI,
+      projectLink:
+        "https://play.google.com/store/apps/details?id=com.kingrittik.doctors",
+      sourceCode: null,
+      author: "Rittik Soni",
+    },
+    {
+      id: 12,
+      title: "Patient AI (Early Access)",
+      description:
+       "Patient AI: A cross-platform AI-powered app for Android & iOS. It offers a comprehensive platform for patients, featuring AI-driven diagnosis, quick online/offline doctor consultation & doctor appointment booking, secure medical records, Get concise, AI-generated summaries of medical data, & many more. Empowering healthcare with cutting-edge technology.",
+      image: rsPatientAI,
+      projectLink:
+        "https://play.google.com/store/apps/details?id=com.kingrittik.patients_ai",
+      sourceCode: null,
+      author: "Rittik Soni",
+      },
 
   {
     id: 15,
@@ -44,15 +57,17 @@ export const projectData = [
     image: rsBloom,
     projectLink: null,
     sourceCode: "https://github.com/RittikSoni/Bloom",
+    author: "Rittik Soni",
   },
   {
     id: 2,
     title: "Netflix clone (iOS & Android)",
     description:
-      "Fully functional iOS and Android app that closely resembles the popular streaming service Netflix",
+      "Elysian:Fully functional iOS and Android OTT app that closely resembles the popular streaming service Netflix",
     image: rsNetflix,
     projectLink: null,
-    sourceCode: "https://github.com/RittikSoni/Android-iOS/tree/main/netflix",
+    sourceCode: "https://github.com/RittikSoni/Elysian",
+    author: "Rittik Soni",
   },
   {
     id: 3,
@@ -71,6 +86,7 @@ export const projectData = [
     image: rsAiEjustice,
     projectLink: "https://ai.google.dev/competition/projects/ai-e-justice",
     sourceCode: "https://github.com/RittikSoni/AI-Powered-E-Justice",
+    author: "Rittik Soni",
   },
   {
     id: 5,
@@ -80,6 +96,7 @@ export const projectData = [
     image: rsMotherEarthGame,
     projectLink: "https://youtu.be/Go7SRUBSsPk?si=Ex4HUwpzPOUo1RRi",
     sourceCode: "https://github.com/RittikSoni/Mother-Earth",
+    author: "Rittik Soni",
   },
   {
     id: 6,
@@ -89,6 +106,7 @@ export const projectData = [
     image: rsPredictionOfDementia,
     projectLink: null,
     sourceCode: "https://github.com/RittikSoni/AI-ML",
+    author: "Rittik Soni",
   },
   {
     id: 7,
@@ -98,6 +116,7 @@ export const projectData = [
     image: rsCustomVideo,
     projectLink: null,
     sourceCode: "https://github.com/RittikSoni/custom_video_player",
+    author: "Rittik Soni",
   },
   {
     id: 8,
@@ -107,6 +126,7 @@ export const projectData = [
     image: rsAahc,
     projectLink: null,
     sourceCode: "https://github.com/RittikSoni/AAHC",
+    author: "Rittik Soni",
   },
   {
     id: 9,
@@ -116,6 +136,7 @@ export const projectData = [
     image: rsPredictionOfDiseases,
     projectLink: null,
     sourceCode: null,
+    author: "Rittik Soni",
   },
   {
     id: 10,
@@ -126,6 +147,7 @@ export const projectData = [
     projectLink: null,
     sourceCode:
       "https://github.com/RittikSoni/Android-iOS/tree/main/weather%20forecast%20app",
+    author: "Rittik Soni",
   },
   {
     id: 11,
@@ -135,15 +157,7 @@ export const projectData = [
     image: rsMessengerPegasus,
     projectLink: null,
     sourceCode: null,
-  },
-  {
-    id: 12,
-    title: "Doc (Web, iOS & Android)",
-    description:
-      "An app that allows users to view their medical reports such as X-ray, MRI, and doctor's prescriptions. It requires internet connectivity and login credentials for security. Doctors can also add new reports to specific patients' records. The app provides a secure and efficient way to manage medical records conveniently from mobile devices.",
-    image: rsDoc,
-    projectLink: null,
-    sourceCode: null,
+    author: "Rittik Soni",
   },
   {
     id: 13,
@@ -154,5 +168,6 @@ export const projectData = [
     projectLink:
       "https://play.google.com/store/apps/details?id=com.kingrittik.adgl",
     sourceCode: null,
+    author: "Rittik Soni",
   },
 ];

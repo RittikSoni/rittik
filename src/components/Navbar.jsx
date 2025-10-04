@@ -140,22 +140,38 @@ function Navbar() {
             <div className="pt-10">
               <p className="uppercase tracking-widest">Let&apos;s Connect</p>
               <div className="flex items-center justify-between my-4 w-full sm:w-[80%]">
-                <Link href={youtube} onClick={() => setNav(false)} target="#">
+                <Link href={youtube} onClick={() => setNav(false)} target="#"
+                  rel="noopener noreferrer"
+                  title="King Rittik YouTube Channel"
+                  aria-label="King Rittik YouTube Channel"
+                >
                   <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
                     <FaYoutube />
                   </div>
                 </Link>
-                <Link href={linkedIn} onClick={() => setNav(false)} target="#">
+                <Link href={linkedIn} onClick={() => setNav(false)} target="#"
+                  rel="noopener noreferrer"
+                  title="King Rittik LinkedIn"
+                  aria-label="King Rittik LinkedIn"
+                >
                   <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
                     <FaLinkedinIn />
                   </div>
                 </Link>
-                <Link href={github} onClick={() => setNav(false)} target="#">
+                <Link href={github} onClick={() => setNav(false)} target="#"
+                  rel="noopener noreferrer"
+                  title="King Rittik GitHub"
+                  aria-label="King Rittik GitHub"
+                >
                   <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
                     <FaGithub />
                   </div>
                 </Link>
-                <Link href={mail} onClick={() => setNav(false)} target="#">
+                <Link href={mail} onClick={() => setNav(false)} target="#"
+                  rel="noopener noreferrer"
+                  title="King Rittik Mail"
+                  aria-label="King Rittik Mail"
+                >
                   <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
                     <AiOutlineMail />
                   </div>
@@ -164,6 +180,9 @@ function Navbar() {
                   href={googlePlay}
                   onClick={() => setNav(false)}
                   target="#"
+                  rel="noopener noreferrer"
+                  title="King Rittik Google Play"
+                  aria-label="King Rittik Google Play"
                 >
                   <div className="rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300">
                     <BsGooglePlay />

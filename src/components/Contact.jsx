@@ -39,7 +39,11 @@ const Contact = () => {
               Mail
             </p>
             <hr className="border-cyan-400 border-2 w-12 mx-auto" />
-            <Link href={mail}>
+            <Link href={mail}
+              rel="noopener noreferrer"
+              title="Rittik Soni Mail"
+              aria-label="Rittik Soni Mail"
+            >
               <p className="text tracking-widest hover:text-cyan-700">
                 kingrittiksoni@gmail.com
               </p>
@@ -54,25 +58,48 @@ const Contact = () => {
             </p>
             <hr className="border-cyan-400 border-2 w-12 mx-auto" />
             <div className="flex justify-evenly">
-              <Link href={youtube} className="hover:text-cyan-700" target="#">
+              <Link href={youtube} className="hover:text-cyan-700" target="#"
+                rel="noopener noreferrer"
+                title="King Rittik YouTube Channel"
+                aria-label="King Rittik YouTube Channel"
+              > 
                 <BsYoutube size={25} />
               </Link>
-              <Link href={discord} className="hover:text-cyan-700" target="#">
+              <Link href={discord} className="hover:text-cyan-700" target="#"
+                rel="noopener noreferrer"
+                title="King Rittik Discord Server"
+                aria-label="King Rittik Discord Server"
+              >
                 <BsDiscord size={25} />
               </Link>
-              <Link href={medium} className="hover:text-cyan-700" target="#">
+              <Link href={medium} className="hover:text-cyan-700" target="#"
+                rel="noopener noreferrer"
+                title="King Rittik Medium"
+                aria-label="King Rittik Medium"
+              >
                 <FaMediumM size={25} />
               </Link>
-              <Link href={linkedIn} className="hover:text-cyan-700" target="#">
+              <Link href={linkedIn} className="hover:text-cyan-700" target="#"
+                rel="noopener noreferrer"
+                title="King Rittik LinkedIn"
+                aria-label="King Rittik LinkedIn"
+              >
                 <FaLinkedinIn size={25} />
               </Link>
-              <Link href={github} className="hover:text-cyan-700" target="#">
+              <Link href={github} className="hover:text-cyan-700" target="#"
+                rel="noopener noreferrer"
+                title="King Rittik GitHub"
+                aria-label="King Rittik GitHub"
+              >
                 <BsGithub size={25} />
               </Link>
               <Link
                 href={googlePlay}
                 className="hover:text-cyan-700"
                 target="#"
+                rel="noopener noreferrer"
+                title="King Rittik Google Play"
+                aria-label="King Rittik Google Play"
               >
                 <BsGooglePlay size={25} />
               </Link>
