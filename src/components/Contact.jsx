@@ -31,7 +31,7 @@ const Contact = () => {
         </div>
         <p className="text-3xl tracking-widest pb-12 pt-4">Connect with me!</p>
         <div className="grid lg:grid-cols-2 md:grid-cols-2 gap-8 md:h-60 lg:h-60 h-100 p-4">
-          <div className="bg-white w-full h-full rounded border-b-cyan-500 border-4 grid">
+          <div className="bg-white w-full h-full rounded border-b-cyan-500 border-b-4 grid">
             <div className="grid justify-center items-center content-center pt-2">
               <MdMail size={30} />
             </div>
@@ -39,7 +39,8 @@ const Contact = () => {
               Mail
             </p>
             <hr className="border-cyan-400 border-2 w-12 mx-auto" />
-            <Link href={mail}
+            <Link
+              href={mail}
               rel="noopener noreferrer"
               title="Rittik Soni Mail"
               aria-label="Rittik Soni Mail"
@@ -49,7 +50,7 @@ const Contact = () => {
               </p>
             </Link>
           </div>
-          <div className="bg-white w-full h-full rounded border-b-cyan-500 border-4 grid">
+          <div className="bg-white w-full h-full rounded border-b-cyan-500 border-b-4 grid">
             <div className="grid justify-center items-center content-center pt-2">
               <BsPeopleFill size={30} />
             </div>
@@ -58,35 +59,50 @@ const Contact = () => {
             </p>
             <hr className="border-cyan-400 border-2 w-12 mx-auto" />
             <div className="flex justify-evenly">
-              <Link href={youtube} className="hover:text-cyan-700" target="#"
+              <Link
+                href={youtube}
+                className="hover:text-cyan-700"
+                target="#"
                 rel="noopener noreferrer"
                 title="King Rittik YouTube Channel"
                 aria-label="King Rittik YouTube Channel"
-              > 
+              >
                 <BsYoutube size={25} />
               </Link>
-              <Link href={discord} className="hover:text-cyan-700" target="#"
+              <Link
+                href={discord}
+                className="hover:text-cyan-700"
+                target="#"
                 rel="noopener noreferrer"
                 title="King Rittik Discord Server"
                 aria-label="King Rittik Discord Server"
               >
                 <BsDiscord size={25} />
               </Link>
-              <Link href={medium} className="hover:text-cyan-700" target="#"
+              <Link
+                href={medium}
+                className="hover:text-cyan-700"
+                target="#"
                 rel="noopener noreferrer"
                 title="King Rittik Medium"
                 aria-label="King Rittik Medium"
               >
                 <FaMediumM size={25} />
               </Link>
-              <Link href={linkedIn} className="hover:text-cyan-700" target="#"
+              <Link
+                href={linkedIn}
+                className="hover:text-cyan-700"
+                target="#"
                 rel="noopener noreferrer"
                 title="King Rittik LinkedIn"
                 aria-label="King Rittik LinkedIn"
               >
                 <FaLinkedinIn size={25} />
               </Link>
-              <Link href={github} className="hover:text-cyan-700" target="#"
+              <Link
+                href={github}
+                className="hover:text-cyan-700"
+                target="#"
                 rel="noopener noreferrer"
                 title="King Rittik GitHub"
                 aria-label="King Rittik GitHub"
