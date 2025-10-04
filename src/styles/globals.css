@@ -5,6 +5,11 @@
 html {
   --scroll-behavior: smooth !important;
   scroll-behavior: smooth !important;
+  ::selection {
+    background-color: #39e6e7;
+    /* background-color: #00f9aa; */
+    color: #000000;
+  }
 }
 
 @layer base {
