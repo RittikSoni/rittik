@@ -15,4 +15,20 @@ export const openSourceData = [
       docs: "http://frx.elpisverse.com",
     },
   },
+  {
+    id: 2,
+    name: "KRUI - Best Flutter UI Kit",
+    description:
+      "A popular, open-source collection of reusable, customizable components (buttons, forms, dialogs, animations & many more) for Flutter.",
+    features: [
+      "Advanced animations: Liquid Swipe, Ripple Reveal, Confetti Explosion & many more.",
+      "Production-ready utilities including Advanced Skeleton Shimmer.",
+      "Fully customizable themes and easy integration for modern Flutter apps.",
+    ],
+    links: {
+      pub: "https://pub.dev/packages/kr_ui",
+      github: "https://github.com/RittikSoni/kr_ui",
+      docs: "https://rittiksoni.github.io/kr_ui/",
+    },
+  },
 ];
