@@ -1,18 +1,26 @@
 export const youtubeVideosData = [
   {
     id: 1,
-    videoId: "U_BEXuSlpeE",
+    videoId: "EY2LPKC1nV0",
   },
   {
     id: 2,
-    videoId: "cmqIqQkjwU8",
+    videoId: "9KUYvgFxEG8",
   },
   {
     id: 3,
-    videoId: "OLBe7KeVmeI",
+    videoId: "U_BEXuSlpeE",
   },
   {
     id: 4,
+    videoId: "cmqIqQkjwU8",
+  },
+  {
+    id: 5,
+    videoId: "OLBe7KeVmeI",
+  },
+  {
+    id: 6,
     videoId: "rz8yYghVqaY",
   },
 ];
