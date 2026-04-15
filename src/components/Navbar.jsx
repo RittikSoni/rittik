@@ -77,8 +77,8 @@ function Navbar() {
               ? "/assets/rittik-soni-kr-kingrittik-logo-lightmode.png" 
               : "/assets/rittik-soni-kr-kingrittik-logo-darkmode.png"}
             alt="Rittik Soni"
-            width={44}
-            height={18}
+            width={54}
+            height={24}
             style={{ objectFit: "contain" }}
           />
         </Link>
