@@ -26,11 +26,11 @@ export default function Home() {
         <link rel="icon" href="/assets/rittik_logo.png" />
         <meta
           name="description"
-          content="Rittik soni is a software engineer with expertise in web development, mobile app development, and software architecture."
+          content="Rittik Soni is a Software Engineer, Speaker and content creator specializing in scalable web development, mobile apps development, AI, software architecture and machine learning architectures."
         />
         <meta
           name="keywords"
-          content="rittik, software engineering, web development, mobile app development, software architecture, portfolio, Rittik Soni"
+          content="rittik, soni, software engineering, web development, mobile app development, software architecture, portfolio, Rittik Soni, ritik, AI, machine learning, speaker, content creator, Youtube, king rittik, kr"
         />
         <meta property="og:title" content="Rittik Soni | Software Engineer" />
         <meta
