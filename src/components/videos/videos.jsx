@@ -3,7 +3,7 @@ import { youtubeVideosData } from "@/data/youtubeVideosData";
 import React, { useState, useEffect, useRef } from "react";
 import VideoItem from "./VideoItem";
 import Link from "next/link";
-import { FaYoutube, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { FaYoutube, FaChevronLeft, FaChevronRight, FaStar } from "react-icons/fa";
 
 const Videos = () => {
   const [visible, setVisible] = useState(false);
@@ -271,6 +271,9 @@ const Videos = () => {
           style={{
             display: "flex",
             justifyContent: "center",
+            alignItems: "center",
+            flexWrap: "wrap",
+            gap: "16px",
             marginTop: "52px",
           }}
         >
@@ -306,7 +309,43 @@ const Videos = () => {
               }}
             >
               <FaYoutube size={20} />
-              Subscribe on YouTube
+              Subscribe
+            </span>
+          </Link>
+
+          <Link
+            href="https://www.youtube.com/channel/UC9Ul36hf_pSlt1UCRFKFApQ/join"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "10px",
+                padding: "12px 32px",
+                borderRadius: "99px",
+                background: "linear-gradient(90deg, #92400e, #d97706)",
+                color: "#fff",
+                fontWeight: 700,
+                fontSize: "0.9rem",
+                letterSpacing: "0.08em",
+                textTransform: "uppercase",
+                boxShadow: "0 4px 24px rgba(217,119,6,0.4), 0 0 0 1px rgba(217,119,6,0.2)",
+                textDecoration: "none",
+                transition: "transform 0.2s ease, box-shadow 0.2s ease",
+              }}
+              onMouseOver={e => {
+                e.currentTarget.style.transform = "scale(1.04)";
+                e.currentTarget.style.boxShadow = "0 8px 32px rgba(217,119,6,0.55), 0 0 0 1px rgba(217,119,6,0.3)";
+              }}
+              onMouseOut={e => {
+                e.currentTarget.style.transform = "scale(1)";
+                e.currentTarget.style.boxShadow = "0 4px 24px rgba(217,119,6,0.4), 0 0 0 1px rgba(217,119,6,0.2)";
+              }}
+            >
+              <FaStar size={16} />
+              Join Membership
             </span>
           </Link>
         </div>
