@@ -22,10 +22,11 @@ const ResearchPublications = () => {
       ref={sectionRef}
       style={{
         width: "100%",
-        background: "linear-gradient(180deg, #050810 0%, #070b13 60%, #060a12 100%)",
+        background: "var(--bg-primary)",
         padding: "96px 0 80px",
         position: "relative",
         overflow: "hidden",
+        transition: "background 0.4s ease"
       }}
     >
       {/* Ambient glows */}
@@ -38,7 +39,7 @@ const ResearchPublications = () => {
           width: "500px",
           height: "350px",
           borderRadius: "50%",
-          background: "radial-gradient(ellipse at center, rgba(124,58,237,0.08) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse at center, rgba(124,58,237,var(--glow-opacity)) 0%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
@@ -51,7 +52,7 @@ const ResearchPublications = () => {
           width: "400px",
           height: "300px",
           borderRadius: "50%",
-          background: "radial-gradient(ellipse at center, rgba(6,182,212,0.06) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse at center, rgba(6,182,212,var(--glow-opacity)) 0%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
@@ -76,7 +77,7 @@ const ResearchPublications = () => {
               fontWeight: 800,
               letterSpacing: "0.25em",
               textTransform: "uppercase",
-              color: "#06b6d4",
+              color: "var(--accent-cyan)",
               marginBottom: "10px",
             }}
           >
@@ -87,10 +88,7 @@ const ResearchPublications = () => {
               fontSize: "clamp(2rem, 5vw, 3.2rem)",
               fontWeight: 800,
               lineHeight: 1.1,
-              background: "linear-gradient(90deg, #f1f5f9 0%, #67e8f9 55%, #06b6d4 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
+              color: "var(--text-primary)",
               marginBottom: "16px",
             }}
           >
@@ -98,7 +96,7 @@ const ResearchPublications = () => {
           </h2>
           <p
             style={{
-              color: "rgba(148,163,184,0.8)",
+              color: "var(--text-secondary)",
               fontSize: "1rem",
               maxWidth: "540px",
               lineHeight: 1.75,
@@ -106,8 +104,6 @@ const ResearchPublications = () => {
           >
             Peer-reviewed publications, book chapters, and technical research spanning AI, machine learning, and data-driven healthcare.
           </p>
-
-
         </div>
 
         {/* Cards */}

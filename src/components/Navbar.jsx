@@ -3,9 +3,10 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from "react-icons/ai";
-import { FaGithub, FaLinkedinIn, FaYoutube } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn, FaYoutube, FaSun, FaMoon } from "react-icons/fa";
 import { BsGooglePlay } from "react-icons/bs";
 import { github, googlePlay, linkedIn, mail, youtube } from "@/data/socialLinks";
+import { useTheme } from "@/context/ThemeContext";
 
 const NAV_LINKS = [
   { label: "Home",     href: "/#home" },
@@ -30,6 +31,7 @@ function Navbar() {
   const [nav, setNav]       = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hoveredLink, setHoveredLink] = useState(null);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.pageYOffset >= 60);
@@ -58,12 +60,12 @@ function Navbar() {
           alignItems: "center",
           justifyContent: "space-between",
           padding: "0 28px",
-          background: scrolled ? "rgba(5,8,18,0.82)" : "transparent",
+          background: scrolled ? "var(--bg-navbar)" : "transparent",
           backdropFilter: scrolled ? "blur(20px)" : "none",
           WebkitBackdropFilter: scrolled ? "blur(20px)" : "none",
-          borderBottom: scrolled ? "1px solid rgba(6,182,212,0.15)" : "none",
+          borderBottom: scrolled ? "1px solid var(--border-accent)" : "none",
           boxShadow: scrolled
-            ? "0 4px 32px rgba(0,0,0,0.5), 0 1px 0 rgba(6,182,212,0.08)"
+            ? "0 4px 32px rgba(0,0,0,0.5), 0 1px 0 var(--border-subtle)"
             : "none",
           transition: "background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease",
         }}
@@ -71,7 +73,9 @@ function Navbar() {
         {/* Logo */}
         <Link href="/#home" style={{ display: "flex", alignItems: "center", textDecoration: "none" }}>
           <Image
-            src="/assets/rittik_logo.png"
+            src={theme === 'light' 
+              ? "/assets/rittik-soni-kr-kingrittik-logo-lightmode.png" 
+              : "/assets/rittik-soni-kr-kingrittik-logo-darkmode.png"}
             alt="Rittik Soni"
             width={44}
             height={18}
@@ -79,68 +83,111 @@ function Navbar() {
           />
         </Link>
 
-        {/* Desktop nav links */}
-        <ul
-          style={{
-            display: "none",
-            listStyle: "none",
-            margin: 0,
-            padding: 0,
-            gap: "4px",
-          }}
-          className="desktop-nav"
-        >
-          {NAV_LINKS.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                onMouseEnter={() => setHoveredLink(link.href)}
-                onMouseLeave={() => setHoveredLink(null)}
-                style={{
-                  display: "inline-block",
-                  padding: "6px 14px",
-                  borderRadius: "99px",
-                  fontSize: "0.72rem",
-                  fontWeight: 700,
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                  textDecoration: "none",
-                  color: hoveredLink === link.href ? "#67e8f9" : "rgba(203,213,225,0.7)",
-                  background: hoveredLink === link.href
-                    ? "rgba(6,182,212,0.12)"
-                    : "transparent",
-                  border: hoveredLink === link.href
-                    ? "1px solid rgba(6,182,212,0.3)"
-                    : "1px solid transparent",
-                  transition: "all 0.22s ease",
-                }}
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        {/* Right side: Nav links + Theme Toggle */}
+        <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
+          {/* Desktop nav links */}
+          <ul
+            style={{
+              display: "none",
+              listStyle: "none",
+              margin: 0,
+              padding: 0,
+              gap: "4px",
+            }}
+            className="desktop-nav"
+          >
+            {NAV_LINKS.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  onMouseEnter={() => setHoveredLink(link.href)}
+                  onMouseLeave={() => setHoveredLink(null)}
+                  style={{
+                    display: "inline-block",
+                    padding: "6px 14px",
+                    borderRadius: "99px",
+                    fontSize: "0.72rem",
+                    fontWeight: 700,
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
+                    textDecoration: "none",
+                    color: hoveredLink === link.href ? "var(--accent-cyan-light)" : "var(--text-secondary)",
+                    background: hoveredLink === link.href
+                      ? "var(--card-hover-bg)"
+                      : "transparent",
+                    border: hoveredLink === link.href
+                      ? "1px solid var(--border-accent)"
+                      : "1px solid transparent",
+                    transition: "all 0.22s ease",
+                  }}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
 
-        {/* Hamburger — mobile */}
-        <button
-          onClick={() => setNav(true)}
-          aria-label="Open menu"
-          className="mobile-menu-btn"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: "36px",
-            height: "36px",
-            borderRadius: "10px",
-            background: "rgba(255,255,255,0.06)",
-            border: "1px solid rgba(255,255,255,0.1)",
-            cursor: "pointer",
-            color: "#e2e8f0",
-          }}
-        >
-          <AiOutlineMenu size={18} />
-        </button>
+          {/* Theme Toggle Switch */}
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            style={{
+              width: "56px",
+              height: "28px",
+              borderRadius: "99px",
+              background: theme === 'dark' ? "rgba(255,255,255,0.06)" : "rgba(15,23,42,0.08)",
+              border: "1px solid var(--border-subtle)",
+              cursor: "pointer",
+              position: "relative",
+              padding: "4px",
+              display: "flex",
+              alignItems: "center",
+              transition: "all 0.3s ease",
+            }}
+          >
+            <div
+              style={{
+                width: "20px",
+                height: "20px",
+                borderRadius: "50%",
+                background: theme === 'dark' ? "#67e8f9" : "#0891b2",
+                boxShadow: theme === 'dark' ? "0 0 10px rgba(103,232,249,0.5)" : "none",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                transform: theme === 'dark' ? "translateX(28px)" : "translateX(0)",
+                transition: "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+              }}
+            >
+              {theme === 'dark' ? (
+                <FaMoon size={10} color="#050812" />
+              ) : (
+                <FaSun size={11} color="#fff" />
+              )}
+            </div>
+          </button>
+
+          {/* Hamburger — mobile */}
+          <button
+            onClick={() => setNav(true)}
+            aria-label="Open menu"
+            className="mobile-menu-btn"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "36px",
+              height: "36px",
+              borderRadius: "10px",
+              background: "var(--card-hover-bg)",
+              border: "1px solid var(--border-subtle)",
+              cursor: "pointer",
+              color: "var(--text-primary)",
+            }}
+          >
+            <AiOutlineMenu size={18} />
+          </button>
+        </div>
       </nav>
 
       {/* ── Mobile Drawer Backdrop ─────────────────────── */}
@@ -149,7 +196,7 @@ function Navbar() {
         style={{
           position: "fixed",
           inset: 0,
-          background: "rgba(0,0,0,0.65)",
+          background: "var(--overlay-bg)",
           backdropFilter: "blur(4px)",
           zIndex: 110,
           opacity: nav ? 1 : 0,
@@ -166,8 +213,8 @@ function Navbar() {
           left: 0,
           bottom: 0,
           width: "min(80vw, 320px)",
-          background: "linear-gradient(160deg, rgba(7,11,20,0.98) 0%, rgba(5,8,18,0.99) 100%)",
-          borderRight: "1px solid rgba(6,182,212,0.15)",
+          background: "linear-gradient(160deg, var(--bg-primary) 0%, var(--bg-secondary) 100%)",
+          borderRight: "1px solid var(--border-accent)",
           boxShadow: "8px 0 40px rgba(0,0,0,0.6)",
           zIndex: 120,
           transform: nav ? "translateX(0)" : "translateX(-100%)",
@@ -185,11 +232,13 @@ function Navbar() {
             alignItems: "center",
             justifyContent: "space-between",
             padding: "20px 24px",
-            borderBottom: "1px solid rgba(255,255,255,0.06)",
+            borderBottom: "1px solid var(--border-subtle)",
           }}
         >
           <Image
-            src="/assets/rittik_logo.png"
+            src={theme === 'light' 
+              ? "/assets/rittik-soni-kr-kingrittik-logo-lightmode.png" 
+              : "/assets/rittik-soni-kr-kingrittik-logo-darkmode.png"}
             alt="Rittik Soni"
             width={80}
             height={32}
@@ -205,10 +254,10 @@ function Navbar() {
               width: "32px",
               height: "32px",
               borderRadius: "8px",
-              background: "rgba(255,255,255,0.06)",
-              border: "1px solid rgba(255,255,255,0.1)",
+              background: "var(--card-hover-bg)",
+              border: "1px solid var(--border-subtle)",
               cursor: "pointer",
-              color: "#e2e8f0",
+              color: "var(--text-primary)",
             }}
           >
             <AiOutlineClose size={16} />
@@ -220,7 +269,7 @@ function Navbar() {
           style={{
             padding: "14px 24px 0",
             fontSize: "0.72rem",
-            color: "rgba(148,163,184,0.5)",
+            color: "var(--text-muted)",
             letterSpacing: "0.08em",
             textTransform: "uppercase",
             fontWeight: 600,
@@ -256,17 +305,17 @@ function Navbar() {
                   letterSpacing: "0.08em",
                   textTransform: "uppercase",
                   textDecoration: "none",
-                  color: "rgba(203,213,225,0.8)",
+                  color: "var(--text-secondary)",
                   background: "transparent",
                   transition: "background 0.2s, color 0.2s",
                 }}
                 onMouseEnter={e => {
-                  e.currentTarget.style.background = "rgba(6,182,212,0.1)";
-                  e.currentTarget.style.color = "#67e8f9";
+                  e.currentTarget.style.background = "var(--card-hover-bg)";
+                  e.currentTarget.style.color = "var(--accent-cyan-light)";
                 }}
                 onMouseLeave={e => {
                   e.currentTarget.style.background = "transparent";
-                  e.currentTarget.style.color = "rgba(203,213,225,0.8)";
+                  e.currentTarget.style.color = "var(--text-secondary)";
                 }}
               >
                 <span
@@ -274,8 +323,9 @@ function Navbar() {
                     width: "6px",
                     height: "6px",
                     borderRadius: "50%",
-                    background: "rgba(6,182,212,0.5)",
+                    background: "var(--accent-cyan)",
                     flexShrink: 0,
+                    opacity: 0.5
                   }}
                 />
                 {link.label}
@@ -289,7 +339,7 @@ function Navbar() {
           <div
             style={{
               height: "1px",
-              background: "rgba(255,255,255,0.06)",
+              background: "var(--border-subtle)",
               marginBottom: "20px",
             }}
           />
@@ -299,7 +349,7 @@ function Navbar() {
               fontWeight: 700,
               letterSpacing: "0.2em",
               textTransform: "uppercase",
-              color: "#06b6d4",
+              color: "var(--accent-cyan)",
               marginBottom: "14px",
             }}
           >
@@ -321,24 +371,24 @@ function Navbar() {
                     width: "38px",
                     height: "38px",
                     borderRadius: "10px",
-                    background: "rgba(255,255,255,0.05)",
-                    border: "1px solid rgba(255,255,255,0.1)",
+                    background: "var(--card-bg)",
+                    border: "1px solid var(--border-subtle)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    color: "rgba(203,213,225,0.7)",
+                    color: "var(--text-secondary)",
                     transition: "all 0.22s ease",
                   }}
                   onMouseEnter={e => {
-                    e.currentTarget.style.background = "rgba(6,182,212,0.15)";
-                    e.currentTarget.style.borderColor = "rgba(6,182,212,0.4)";
-                    e.currentTarget.style.color = "#67e8f9";
+                    e.currentTarget.style.background = "var(--card-hover-bg)";
+                    e.currentTarget.style.borderColor = "var(--border-accent)";
+                    e.currentTarget.style.color = "var(--accent-cyan-light)";
                     e.currentTarget.style.transform = "scale(1.1)";
                   }}
                   onMouseLeave={e => {
-                    e.currentTarget.style.background = "rgba(255,255,255,0.05)";
-                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
-                    e.currentTarget.style.color = "rgba(203,213,225,0.7)";
+                    e.currentTarget.style.background = "var(--card-bg)";
+                    e.currentTarget.style.borderColor = "var(--border-subtle)";
+                    e.currentTarget.style.color = "var(--text-secondary)";
                     e.currentTarget.style.transform = "scale(1)";
                   }}
                 >

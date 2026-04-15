@@ -1,40 +1,78 @@
 @import "tailwindcss";
 
+@layer base {
+  :root {
+    /* Dark Theme (Default) */
+    --bg-primary: #050812;
+    --bg-secondary: #080c14;
+    --bg-navbar: rgba(5, 8, 18, 0.82);
+    
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted: rgba(148, 163, 184, 0.5);
+    
+    --accent-cyan: #06b6d4;
+    --accent-cyan-light: #67e8f9;
+    
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-accent: rgba(6, 182, 212, 0.15);
+    
+    --card-bg: rgba(8, 12, 20, 0.8);
+    --card-hover-bg: rgba(6, 182, 212, 0.08);
+    
+    --glow-opacity: 0.08;
+    --shadow-accent: rgba(6,182,212, 0.22);
+    --overlay-bg: rgba(0, 0, 0, 0.65);
+  }
+
+  /* Explicitly define .dark if needed, but we use :root for dark */
+  
+  .light {
+    /* Light Theme */
+    --bg-primary: #f8fafc;
+    --bg-secondary: #ffffff;
+    --bg-navbar: rgba(248, 250, 252, 0.82);
+    
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: rgba(71, 85, 105, 0.5);
+    
+    --accent-cyan: #0891b2;
+    --accent-cyan-light: #06b6d4;
+    
+    --border-subtle: rgba(0, 0, 0, 0.08);
+    --border-accent: rgba(8, 145, 178, 0.2);
+    
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --card-hover-bg: rgba(8, 145, 178, 0.05);
+    
+    --glow-opacity: 0.04;
+    --shadow-accent: rgba(0, 0, 0, 0.12);
+    --overlay-bg: rgba(15, 23, 42, 0.3);
+  }
+
+  body {
+    @apply bg-[var(--bg-primary)] text-[var(--text-primary)] tracking-wide transition-colors duration-300;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold text-[var(--text-primary)];
+  }
+
+  h1 { @apply text-4xl sm:text-5xl md:text-6xl; }
+  h2 { @apply text-3xl sm:text-4xl; }
+  li { @apply cursor-pointer; }
+}
+
 @layer utilities {
   html {
     --scroll-behavior: smooth !important;
     scroll-behavior: smooth !important;
     font-family: "Nunito";
     ::selection {
-      background-color: #39e6e7;
+      background-color: var(--accent-cyan);
       color: #000000;
     }
-  }
-}
-
-@layer base {
-  body {
-    @apply bg-[#ffffff] text-white tracking-wide;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-bold;
-  }
-
-  h1 {
-    @apply text-4xl sm:text-5xl md:text-6xl;
-  }
-
-  h2 {
-    @apply text-3xl sm:text-4xl;
-  }
-
-  li {
-    @apply cursor-pointer;
   }
 }

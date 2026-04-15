@@ -22,10 +22,11 @@ const Skills = () => {
       ref={sectionRef}
       style={{
         width: "100%",
-        background: "linear-gradient(180deg, #060a12 0%, #080c14 60%, #070b13 100%)",
+        background: "var(--bg-primary)",
         padding: "80px 0",
         position: "relative",
         overflow: "hidden",
+        transition: "background 0.4s ease"
       }}
     >
       {/* Ambient glow */}
@@ -39,7 +40,7 @@ const Skills = () => {
           width: "800px",
           height: "400px",
           borderRadius: "50%",
-          background: "radial-gradient(ellipse at center, rgba(6,182,212,0.08) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse at center, rgba(6,182,212,var(--glow-opacity)) 0%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
@@ -64,7 +65,7 @@ const Skills = () => {
               fontWeight: 800,
               letterSpacing: "0.25em",
               textTransform: "uppercase",
-              color: "#06b6d4",
+              color: "var(--accent-cyan)",
               marginBottom: "10px",
             }}
           >
@@ -75,10 +76,7 @@ const Skills = () => {
               fontSize: "clamp(2rem, 5vw, 3.2rem)",
               fontWeight: 800,
               lineHeight: 1.1,
-              background: "linear-gradient(90deg, #f1f5f9 0%, #67e8f9 55%, #06b6d4 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
+              color: "var(--text-primary)",
               marginBottom: "14px",
             }}
           >
@@ -86,7 +84,7 @@ const Skills = () => {
           </h2>
           <p
             style={{
-              color: "rgba(148,163,184,0.8)",
+              color: "var(--text-secondary)",
               fontSize: "1rem",
               maxWidth: "520px",
               lineHeight: 1.75,

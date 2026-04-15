@@ -3,10 +3,12 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { FaPlay, FaYoutube } from "react-icons/fa";
 import Image from "next/image";
+import { useTheme } from "@/context/ThemeContext";
 
 const VideoItem = ({ videoId, featured = false }) => {
   const [playing, setPlaying] = useState(false);
   const [hovered, setHovered] = useState(false);
+  const { theme } = useTheme();
 
   const thumb = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
   const ytUrl = `https://www.youtube.com/watch?v=${videoId}`;
@@ -20,16 +22,17 @@ const VideoItem = ({ videoId, featured = false }) => {
         borderRadius: featured ? "24px" : "18px",
         overflow: "hidden",
         aspectRatio: "16/9",
-        background: "#080c14",
+        background: "var(--bg-secondary)",
         border: hovered
-          ? "1.5px solid rgba(6,182,212,0.55)"
-          : "1.5px solid rgba(255,255,255,0.07)",
+          ? "1.5px solid var(--accent-cyan-light)"
+          : "1.5px solid var(--border-subtle)",
         boxShadow: hovered
-          ? "0 8px 48px rgba(6,182,212,0.18), 0 2px 16px rgba(0,0,0,0.6)"
-          : "0 2px 24px rgba(0,0,0,0.5)",
+          ? "0 8px 48px rgba(6,182,212,0.18), 0 2px 16px rgba(0,0,0,0.4)"
+          : "0 2px 24px rgba(0,0,0,0.15)",
         transform: hovered && !playing ? "translateY(-5px) scale(1.012)" : "translateY(0) scale(1)",
         transition: "all 0.38s cubic-bezier(.22,.68,0,1.2)",
         cursor: "pointer",
+        backdropFilter: "blur(18px)",
       }}
     >
       {playing ? (
@@ -53,7 +56,9 @@ const VideoItem = ({ videoId, featured = false }) => {
               display: "block",
               transition: "transform 0.55s ease, filter 0.4s ease",
               transform: hovered ? "scale(1.06)" : "scale(1)",
-              filter: hovered ? "brightness(0.45)" : "brightness(0.72)",
+              filter: theme === 'dark' 
+                ? (hovered ? "brightness(0.45)" : "brightness(0.72)")
+                : (hovered ? "brightness(0.6)" : "brightness(1) saturate(1.1)"),
             }}
           />
 
@@ -62,8 +67,9 @@ const VideoItem = ({ videoId, featured = false }) => {
             style={{
               position: "absolute",
               inset: 0,
-              background:
-                "linear-gradient(180deg, transparent 30%, rgba(5,8,18,0.92) 100%)",
+              background: theme === 'dark' 
+                ? "linear-gradient(180deg, transparent 30%, rgba(5,8,18,0.92) 100%)"
+                : "linear-gradient(180deg, transparent 30%, rgba(255,255,255,0.4) 100%)",
               pointerEvents: "none",
             }}
           />
@@ -74,15 +80,18 @@ const VideoItem = ({ videoId, featured = false }) => {
               position: "absolute",
               inset: 0,
               backgroundImage:
-                "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.04) 2px, rgba(0,0,0,0.04) 4px)",
+                "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px)",
               pointerEvents: "none",
-              opacity: 0.6,
+              opacity: theme === 'dark' ? 0.6 : 0.2,
             }}
           />
 
           {/* Play button */}
           <div
-            onClick={() => setPlaying(true)}
+            onClick={(e) => {
+              e.stopPropagation();
+              setPlaying(true);
+            }}
             style={{
               position: "absolute",
               inset: 0,
@@ -97,8 +106,8 @@ const VideoItem = ({ videoId, featured = false }) => {
                 height: featured ? "72px" : "56px",
                 borderRadius: "50%",
                 background: hovered
-                  ? "rgba(6,182,212,0.92)"
-                  : "rgba(255,255,255,0.12)",
+                  ? "var(--accent-cyan)"
+                  : "rgba(255,255,255,0.18)",
                 border: "2px solid rgba(255,255,255,0.3)",
                 display: "flex",
                 alignItems: "center",
@@ -108,7 +117,7 @@ const VideoItem = ({ videoId, featured = false }) => {
                 transform: hovered ? "scale(1.15)" : "scale(1)",
                 boxShadow: hovered
                   ? "0 0 0 8px rgba(6,182,212,0.15), 0 4px 24px rgba(6,182,212,0.4)"
-                  : "0 4px 16px rgba(0,0,0,0.4)",
+                  : "0 4px 16px rgba(0,0,0,0.3)",
               }}
             >
               <FaPlay
@@ -141,7 +150,7 @@ const VideoItem = ({ videoId, featured = false }) => {
                   gap: "5px",
                   padding: "4px 12px",
                   borderRadius: "99px",
-                  background: "rgba(185,28,28,0.85)",
+                  background: "rgba(185,28,28,0.9)",
                   color: "#fff",
                   fontSize: "0.65rem",
                   fontWeight: 700,

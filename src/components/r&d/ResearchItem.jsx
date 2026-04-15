@@ -4,18 +4,21 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaExternalLinkAlt, FaBookOpen, FaQuoteLeft } from "react-icons/fa";
 import { HiOutlineDocumentText } from "react-icons/hi";
+import { useTheme } from "@/context/ThemeContext";
 
 const typeColors = {
-  "Book Chapter":  { bg: "rgba(124,58,237,0.2)",  border: "rgba(124,58,237,0.5)",  text: "#c4b5fd" },
-  "Journal":       { bg: "rgba(6,182,212,0.2)",   border: "rgba(6,182,212,0.5)",   text: "#67e8f9" },
-  "Conference":    { bg: "rgba(245,158,11,0.2)",  border: "rgba(245,158,11,0.5)",  text: "#fcd34d" },
-  "Preprint":      { bg: "rgba(239,68,68,0.2)",   border: "rgba(239,68,68,0.5)",   text: "#fca5a5" },
+  "Book Chapter":  { bg: "rgba(124,58,237,0.2)",  border: "rgba(124,58,237,0.5)",  text: "#c4b5fd", lightText: "#7c3aed" },
+  "Journal":       { bg: "rgba(6,182,212,0.2)",   border: "rgba(6,182,212,0.5)",   text: "#67e8f9", lightText: "#0891b2" },
+  "Conference":    { bg: "rgba(245,158,11,0.2)",  border: "rgba(245,158,11,0.5)",  text: "#fcd34d", lightText: "#d97706" },
+  "Preprint":      { bg: "rgba(239,68,68,0.2)",   border: "rgba(239,68,68,0.5)",   text: "#fca5a5", lightText: "#dc2626" },
 };
-const fallbackType = { bg: "rgba(6,182,212,0.15)", border: "rgba(6,182,212,0.35)", text: "#67e8f9" };
+const fallbackType = { bg: "rgba(6,182,212,0.15)", border: "rgba(6,182,212,0.35)", text: "#67e8f9", lightText: "#0891b2" };
 
 const ResearchItem = ({ title, abstract, authors = [], publisher, year, isbn, type, keywords = [], image, accessLink, alt }) => {
   const [hovered, setHovered] = useState(false);
+  const { theme } = useTheme();
   const typeStyle = typeColors[type] || fallbackType;
+  const activeTypeColor = theme === 'light' ? typeStyle.lightText : typeStyle.text;
 
   return (
     <div
@@ -25,16 +28,17 @@ const ResearchItem = ({ title, abstract, authors = [], publisher, year, isbn, ty
         position: "relative",
         borderRadius: "20px",
         overflow: "hidden",
-        background: "rgba(8,12,20,0.85)",
+        background: "var(--card-bg)",
         border: hovered
-          ? "1.5px solid rgba(6,182,212,0.5)"
-          : "1.5px solid rgba(255,255,255,0.08)",
+          ? "1.5px solid var(--accent-cyan-light)"
+          : "1.5px solid var(--border-subtle)",
         boxShadow: hovered
-          ? "0 12px 60px rgba(6,182,212,0.18), 0 4px 20px rgba(0,0,0,0.7)"
-          : "0 4px 32px rgba(0,0,0,0.5)",
+          ? "0 12px 60px rgba(6,182,212,0.18), 0 4px 20px rgba(0,0,0,0.4)"
+          : "0 4px 32px rgba(0,0,0,0.15)",
         transform: hovered ? "translateY(-6px)" : "translateY(0)",
         transition: "all 0.4s cubic-bezier(.22,.68,0,1.2)",
         backdropFilter: "blur(18px)",
+        WebkitBackdropFilter: "blur(18px)",
         display: "flex",
         flexDirection: "column",
       }}
@@ -45,9 +49,9 @@ const ResearchItem = ({ title, abstract, authors = [], publisher, year, isbn, ty
           style={{
             position: "relative",
             width: "100%",
-            aspectRatio: "3 / 2",   /* landscape – shows full cover clearly */
+            aspectRatio: "3 / 2",
             overflow: "hidden",
-            background: "#04060d",
+            background: "var(--bg-primary)",
           }}
         >
           <Image
@@ -60,7 +64,9 @@ const ResearchItem = ({ title, abstract, authors = [], publisher, year, isbn, ty
               objectPosition: "center top",
               transition: "transform 0.6s ease, filter 0.45s ease",
               transform: hovered ? "scale(1.04)" : "scale(1)",
-              filter: hovered ? "brightness(0.38)" : "brightness(0.88)",
+              filter: theme === 'dark' 
+                ? (hovered ? "brightness(0.38)" : "brightness(0.88)")
+                : (hovered ? "brightness(0.5) blur(1px)" : "brightness(0.95)"),
             }}
           />
 
@@ -69,8 +75,9 @@ const ResearchItem = ({ title, abstract, authors = [], publisher, year, isbn, ty
             style={{
               position: "absolute",
               inset: 0,
-              backgroundImage:
-                "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.06) 2px, rgba(0,0,0,0.06) 4px)",
+              backgroundImage: theme === 'dark' 
+                ? "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.06) 2px, rgba(0,0,0,0.06) 4px)"
+                : "none",
               pointerEvents: "none",
             }}
           />
@@ -80,7 +87,9 @@ const ResearchItem = ({ title, abstract, authors = [], publisher, year, isbn, ty
             style={{
               position: "absolute",
               inset: 0,
-              background: "linear-gradient(180deg, rgba(8,12,20,0.0) 30%, rgba(8,12,20,0.98) 100%)",
+              background: theme === 'dark'
+                ? "linear-gradient(180deg, rgba(8,12,20,0.0) 30%, rgba(8,12,20,0.98) 100%)"
+                : "linear-gradient(180deg, rgba(255,255,255,0.0) 30%, var(--card-bg) 100%)",
               pointerEvents: "none",
             }}
           />
@@ -97,7 +106,7 @@ const ResearchItem = ({ title, abstract, authors = [], publisher, year, isbn, ty
                 fontWeight: 700,
                 letterSpacing: "0.12em",
                 textTransform: "uppercase",
-                color: typeStyle.text,
+                color: activeTypeColor,
                 background: typeStyle.bg,
                 border: `1px solid ${typeStyle.border}`,
                 padding: "3px 12px",
@@ -124,8 +133,9 @@ const ResearchItem = ({ title, abstract, authors = [], publisher, year, isbn, ty
                 fontSize: "0.62rem",
                 fontWeight: 700,
                 letterSpacing: "0.1em",
-                color: "rgba(255,255,255,0.55)",
-                background: "rgba(0,0,0,0.4)",
+                color: "var(--text-muted)",
+                background: "var(--card-hover-bg)",
+                border: "1px solid var(--border-subtle)",
                 padding: "3px 10px",
                 borderRadius: "99px",
                 backdropFilter: "blur(6px)",
@@ -184,7 +194,7 @@ const ResearchItem = ({ title, abstract, authors = [], publisher, year, isbn, ty
         {/* Title */}
         <h3
           style={{
-            color: hovered ? "#67e8f9" : "#f1f5f9",
+            color: hovered ? "var(--accent-cyan-light)" : "var(--text-primary)",
             fontSize: "1rem",
             fontWeight: 700,
             lineHeight: 1.45,
@@ -200,7 +210,7 @@ const ResearchItem = ({ title, abstract, authors = [], publisher, year, isbn, ty
           <p
             style={{
               fontSize: "0.75rem",
-              color: "#67e8f9",
+              color: "var(--accent-cyan)",
               fontWeight: 600,
               marginBottom: "4px",
             }}
@@ -211,29 +221,29 @@ const ResearchItem = ({ title, abstract, authors = [], publisher, year, isbn, ty
 
         {/* Publisher */}
         {publisher && (
-          <p style={{ fontSize: "0.72rem", color: "rgba(148,163,184,0.5)", fontStyle: "italic", marginBottom: "2px" }}>
+          <p style={{ fontSize: "0.72rem", color: "var(--text-muted)", fontStyle: "italic", marginBottom: "2px" }}>
             {publisher}
           </p>
         )}
 
         {/* ISBN */}
         {isbn && (
-          <p style={{ fontSize: "0.65rem", color: "rgba(148,163,184,0.35)", letterSpacing: "0.05em", marginBottom: "14px" }}>
+          <p style={{ fontSize: "0.65rem", color: "var(--text-muted)", opacity: 0.7, letterSpacing: "0.05em", marginBottom: "14px" }}>
             ISBN: {isbn}
           </p>
         )}
 
         {/* Divider */}
-        <div style={{ height: "1px", background: "rgba(255,255,255,0.06)", marginBottom: "14px" }} />
+        <div style={{ height: "1px", background: "var(--border-subtle)", marginBottom: "14px" }} />
 
         {/* Abstract */}
         {abstract && (
           <div style={{ display: "flex", alignItems: "flex-start", gap: "8px", marginBottom: "14px" }}>
-            <FaQuoteLeft size={10} color="rgba(6,182,212,0.45)" style={{ marginTop: "4px", flexShrink: 0 }} />
+            <FaQuoteLeft size={10} color="var(--accent-cyan)" style={{ opacity: 0.4, marginTop: "4px", flexShrink: 0 }} />
             <p
               style={{
                 fontSize: "0.78rem",
-                color: "rgba(148,163,184,0.7)",
+                color: "var(--text-secondary)",
                 lineHeight: 1.7,
                 display: "-webkit-box",
                 WebkitLineClamp: 3,
@@ -257,9 +267,9 @@ const ResearchItem = ({ title, abstract, authors = [], publisher, year, isbn, ty
                   fontWeight: 600,
                   letterSpacing: "0.07em",
                   textTransform: "uppercase",
-                  color: "rgba(103,232,249,0.65)",
-                  background: "rgba(6,182,212,0.07)",
-                  border: "1px solid rgba(6,182,212,0.15)",
+                  color: "var(--accent-cyan)",
+                  background: "var(--card-hover-bg)",
+                  border: "1px solid var(--border-subtle)",
                   borderRadius: "6px",
                   padding: "2px 8px",
                 }}
@@ -319,11 +329,12 @@ const ResearchItem = ({ title, abstract, authors = [], publisher, year, isbn, ty
         <span
           style={{
             fontSize: "0.62rem",
-            color: "rgba(148,163,184,0.3)",
+            color: "var(--text-muted)",
             letterSpacing: "0.05em",
             display: "inline-flex",
             alignItems: "center",
             gap: "5px",
+            opacity: 0.6
           }}
         >
           <FaExternalLinkAlt size={8} />

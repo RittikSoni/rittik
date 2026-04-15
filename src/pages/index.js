@@ -53,10 +53,11 @@ export default function Home() {
       Track how much user scrolled */}
       <motion.div
         id="scroll-indicator"
-        className="z-100 bg-emerald-500 rounded-full fixed h-1 top-0 left-0 right-0"
+        className="z-100 rounded-full fixed h-1 top-0 left-0 right-0"
         style={{
           scaleX,
           originX: 0,
+          background: "var(--accent-cyan)",
         }}
       />
       <HomeMain />

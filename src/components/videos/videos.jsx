@@ -4,11 +4,13 @@ import React, { useState, useEffect, useRef } from "react";
 import VideoItem from "./VideoItem";
 import Link from "next/link";
 import { FaYoutube, FaChevronLeft, FaChevronRight, FaStar } from "react-icons/fa";
+import { useTheme } from "@/context/ThemeContext";
 
 const Videos = () => {
   const [visible, setVisible] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const sectionRef = useRef(null);
+  const { theme } = useTheme();
 
   const featured = youtubeVideosData[activeIndex];
   const rest = youtubeVideosData.filter((_, i) => i !== activeIndex);
@@ -31,10 +33,11 @@ const Videos = () => {
       ref={sectionRef}
       style={{
         width: "100%",
-        background: "linear-gradient(180deg, #050810 0%, #080c14 50%, #060a12 100%)",
+        background: "var(--bg-primary)",
         padding: "96px 0 80px",
         position: "relative",
         overflow: "hidden",
+        transition: "background 0.4s ease"
       }}
     >
       {/* Ambient theatre spotlight */}
@@ -48,10 +51,11 @@ const Videos = () => {
           width: "700px",
           height: "400px",
           borderRadius: "50%",
-          background: "radial-gradient(ellipse at center, rgba(6,182,212,0.1) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse at center, rgba(6,182,212,var(--glow-opacity)) 0%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
+      
       {/* Red YouTube glow bottom-right */}
       <div
         aria-hidden="true"
@@ -62,7 +66,7 @@ const Videos = () => {
           width: "500px",
           height: "400px",
           borderRadius: "50%",
-          background: "radial-gradient(ellipse at center, rgba(220,38,38,0.07) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse at center, rgba(220,38,38,var(--glow-opacity)) 0%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
@@ -73,8 +77,9 @@ const Videos = () => {
         style={{
           position: "absolute",
           inset: 0,
-          backgroundImage:
-            "repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.03) 3px, rgba(0,0,0,0.03) 6px)",
+          backgroundImage: theme === 'dark' 
+            ? "repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.03) 3px, rgba(0,0,0,0.03) 6px)"
+            : "none",
           pointerEvents: "none",
           zIndex: 0,
         }}
@@ -100,7 +105,7 @@ const Videos = () => {
               fontWeight: 800,
               letterSpacing: "0.25em",
               textTransform: "uppercase",
-              color: "#06b6d4",
+              color: "var(--accent-cyan)",
               marginBottom: "10px",
             }}
           >
@@ -111,10 +116,7 @@ const Videos = () => {
               fontSize: "clamp(2rem, 5vw, 3.2rem)",
               fontWeight: 800,
               lineHeight: 1.1,
-              background: "linear-gradient(90deg, #f1f5f9 0%, #67e8f9 55%, #06b6d4 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
+              color: "var(--text-primary)",
               marginBottom: "16px",
             }}
           >
@@ -122,7 +124,7 @@ const Videos = () => {
           </h2>
           <p
             style={{
-              color: "rgba(148,163,184,0.8)",
+              color: "var(--text-secondary)",
               fontSize: "1rem",
               maxWidth: "520px",
               lineHeight: 1.75,
@@ -152,9 +154,9 @@ const Videos = () => {
               width: "42px",
               height: "42px",
               borderRadius: "50%",
-              background: "rgba(6,182,212,0.15)",
-              border: "1.5px solid rgba(6,182,212,0.4)",
-              color: "#67e8f9",
+              background: "var(--card-hover-bg)",
+              border: "1.5px solid var(--border-accent)",
+              color: "var(--accent-cyan-light)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -163,7 +165,7 @@ const Videos = () => {
               transition: "all 0.25s ease",
             }}
             onMouseOver={e => e.currentTarget.style.background = "rgba(6,182,212,0.3)"}
-            onMouseOut={e => e.currentTarget.style.background = "rgba(6,182,212,0.15)"}
+            onMouseOut={e => e.currentTarget.style.background = "var(--card-hover-bg)"}
           >
             <FaChevronLeft size={14} />
           </button>
@@ -172,7 +174,7 @@ const Videos = () => {
             style={{
               borderRadius: "24px",
               overflow: "hidden",
-              boxShadow: "0 0 0 1px rgba(6,182,212,0.15), 0 24px 80px rgba(0,0,0,0.7)",
+              boxShadow: "0 0 0 1px var(--border-accent), 0 24px 80px rgba(0,0,0,0.5)",
             }}
           >
             <VideoItem
@@ -194,9 +196,9 @@ const Videos = () => {
               width: "42px",
               height: "42px",
               borderRadius: "50%",
-              background: "rgba(6,182,212,0.15)",
-              border: "1.5px solid rgba(6,182,212,0.4)",
-              color: "#67e8f9",
+              background: "var(--card-hover-bg)",
+              border: "1.5px solid var(--border-accent)",
+              color: "var(--accent-cyan-light)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -205,7 +207,7 @@ const Videos = () => {
               transition: "all 0.25s ease",
             }}
             onMouseOver={e => e.currentTarget.style.background = "rgba(6,182,212,0.3)"}
-            onMouseOut={e => e.currentTarget.style.background = "rgba(6,182,212,0.15)"}
+            onMouseOut={e => e.currentTarget.style.background = "var(--card-hover-bg)"}
           >
             <FaChevronRight size={14} />
           </button>
@@ -228,7 +230,7 @@ const Videos = () => {
                 width: i === activeIndex ? "24px" : "8px",
                 height: "8px",
                 borderRadius: "99px",
-                background: i === activeIndex ? "#06b6d4" : "rgba(255,255,255,0.2)",
+                background: i === activeIndex ? "var(--accent-cyan)" : "var(--border-subtle)",
                 border: "none",
                 cursor: "pointer",
                 transition: "all 0.3s ease",

@@ -15,16 +15,17 @@ const OpenSourceItem = ({ OpenSourceItem: item }) => {
         position: "relative",
         borderRadius: "20px",
         overflow: "hidden",
-        background: "rgba(8,12,20,0.8)",
+        background: "var(--card-bg)",
         border: hovered
-          ? "1.5px solid rgba(6,182,212,0.55)"
-          : "1.5px solid rgba(255,255,255,0.08)",
+          ? "1.5px solid var(--accent-cyan-light)"
+          : "1.5px solid var(--border-subtle)",
         boxShadow: hovered
-          ? "0 8px 48px rgba(6,182,212,0.18), 0 2px 16px rgba(0,0,0,0.6)"
-          : "0 2px 24px rgba(0,0,0,0.4)",
+          ? "0 8px 48px rgba(6,182,212,0.18), 0 2px 16px rgba(0,0,0,0.4)"
+          : "0 2px 24px rgba(0,0,0,0.15)",
         transform: hovered ? "translateY(-6px) scale(1.012)" : "translateY(0) scale(1)",
         transition: "all 0.38s cubic-bezier(.22,.68,0,1.2)",
         backdropFilter: "blur(18px)",
+        WebkitBackdropFilter: "blur(18px)",
         padding: "28px",
       }}
     >
@@ -51,20 +52,20 @@ const OpenSourceItem = ({ OpenSourceItem: item }) => {
             width: "44px",
             height: "44px",
             borderRadius: "12px",
-            background: "linear-gradient(135deg, rgba(6,182,212,0.2), rgba(8,145,178,0.1))",
-            border: "1px solid rgba(6,182,212,0.3)",
+            background: "var(--card-hover-bg)",
+            border: "1px solid var(--border-accent)",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             flexShrink: 0,
           }}
         >
-          <SiFlutter size={20} color="#67e8f9" />
+          <SiFlutter size={20} color="var(--accent-cyan)" />
         </div>
         <div style={{ flex: 1 }}>
           <h3
             style={{
-              color: hovered ? "#67e8f9" : "#f1f5f9",
+              color: hovered ? "var(--accent-cyan-light)" : "var(--text-primary)",
               fontSize: "1.05rem",
               fontWeight: 700,
               lineHeight: 1.3,
@@ -76,7 +77,7 @@ const OpenSourceItem = ({ OpenSourceItem: item }) => {
           </h3>
           <p
             style={{
-              color: "rgba(148,163,184,0.7)",
+              color: "var(--text-secondary)",
               fontSize: "0.82rem",
               lineHeight: 1.6,
             }}
@@ -95,7 +96,7 @@ const OpenSourceItem = ({ OpenSourceItem: item }) => {
               display: "flex",
               alignItems: "flex-start",
               gap: "10px",
-              color: "rgba(203,213,225,0.75)",
+              color: "var(--text-secondary)",
               fontSize: "0.8rem",
               lineHeight: 1.6,
               marginBottom: "8px",
@@ -103,7 +104,7 @@ const OpenSourceItem = ({ OpenSourceItem: item }) => {
           >
             <span
               style={{
-                color: "#06b6d4",
+                color: "var(--accent-cyan)",
                 marginTop: "4px",
                 flexShrink: 0,
                 fontSize: "0.55rem",
@@ -120,7 +121,7 @@ const OpenSourceItem = ({ OpenSourceItem: item }) => {
       <div
         style={{
           height: "1px",
-          background: "rgba(255,255,255,0.07)",
+          background: "var(--border-subtle)",
           marginBottom: "18px",
         }}
       />
@@ -160,9 +161,9 @@ const OpenSourceItem = ({ OpenSourceItem: item }) => {
                 gap: "6px",
                 padding: "7px 16px",
                 borderRadius: "99px",
-                background: "rgba(255,255,255,0.08)",
-                border: "1.5px solid rgba(255,255,255,0.15)",
-                color: "#e2e8f0",
+                background: "var(--card-bg)",
+                border: "1.5px solid var(--border-subtle)",
+                color: "var(--text-primary)",
                 fontWeight: 700,
                 fontSize: "0.7rem",
                 letterSpacing: "0.08em",
@@ -185,9 +186,9 @@ const OpenSourceItem = ({ OpenSourceItem: item }) => {
                 gap: "6px",
                 padding: "7px 16px",
                 borderRadius: "99px",
-                background: "rgba(255,255,255,0.08)",
-                border: "1.5px solid rgba(255,255,255,0.15)",
-                color: "#e2e8f0",
+                background: "var(--card-bg)",
+                border: "1.5px solid var(--border-subtle)",
+                color: "var(--text-primary)",
                 fontWeight: 700,
                 fontSize: "0.7rem",
                 letterSpacing: "0.08em",

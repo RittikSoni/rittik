@@ -45,10 +45,11 @@ const Projects = () => {
       ref={sectionRef}
       style={{
         width: "100%",
-        background: "linear-gradient(180deg, #080c14 0%, #0d0d1a 60%, #0a0a16 100%)",
+        background: "var(--bg-secondary)",
         padding: "96px 0 80px",
         position: "relative",
         overflow: "hidden",
+        transition: "background 0.4s ease"
       }}
     >
       {/* Background glows */}
@@ -62,23 +63,7 @@ const Projects = () => {
           width: "900px",
           height: "500px",
           borderRadius: "50%",
-          background:
-            "radial-gradient(ellipse at center, rgba(6,182,212,0.12) 0%, transparent 70%)",
-          pointerEvents: "none",
-          zIndex: 0,
-        }}
-      />
-      <div
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          bottom: "0",
-          right: "-200px",
-          width: "600px",
-          height: "400px",
-          borderRadius: "50%",
-          background:
-            "radial-gradient(ellipse at center, rgba(6,182,212,0.08) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse at center, rgba(6,182,212,var(--glow-opacity)) 0%, transparent 70%)",
           pointerEvents: "none",
           zIndex: 0,
         }}
@@ -104,7 +89,7 @@ const Projects = () => {
               fontWeight: 800,
               letterSpacing: "0.25em",
               textTransform: "uppercase",
-              color: "#06b6d4",
+              color: "var(--accent-cyan)",
               marginBottom: "10px",
             }}
           >
@@ -115,10 +100,7 @@ const Projects = () => {
               fontSize: "clamp(2rem, 5vw, 3.2rem)",
               fontWeight: 800,
               lineHeight: 1.1,
-              background: "linear-gradient(90deg, #f1f5f9 0%, #67e8f9 55%, #06b6d4 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
+              color: "var(--text-primary)",
               marginBottom: "16px",
             }}
           >
@@ -126,7 +108,7 @@ const Projects = () => {
           </h2>
           <p
             style={{
-              color: "rgba(148,163,184,0.8)",
+              color: "var(--text-secondary)",
               fontSize: "1rem",
               maxWidth: "520px",
               lineHeight: 1.75,
@@ -156,12 +138,12 @@ const Projects = () => {
                   padding: "7px 20px",
                   borderRadius: "99px",
                   border: isActive
-                    ? "1.5px solid rgba(6,182,212,0.7)"
-                    : "1.5px solid rgba(255,255,255,0.1)",
+                    ? "1.5px solid var(--accent-cyan-light)"
+                    : "1.5px solid var(--border-subtle)",
                   background: isActive
-                    ? "linear-gradient(90deg, rgba(6,182,212,0.2), rgba(8,145,178,0.15))"
-                    : "rgba(255,255,255,0.04)",
-                  color: isActive ? "#67e8f9" : "rgba(148,163,184,0.7)",
+                    ? "var(--card-hover-bg)"
+                    : "var(--card-bg)",
+                  color: isActive ? "var(--accent-cyan-light)" : "var(--text-secondary)",
                   fontWeight: 600,
                   fontSize: "0.75rem",
                   letterSpacing: "0.06em",
@@ -214,7 +196,7 @@ const Projects = () => {
         {/* Footer note */}
         <p
           style={{
-            color: "rgba(100,116,139,0.7)",
+            color: "var(--text-muted)",
             fontSize: "0.82rem",
             textAlign: "center",
             marginTop: "56px",
@@ -227,10 +209,10 @@ const Projects = () => {
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              color: "#a78bfa",
+              color: "var(--accent-cyan-light)",
               textDecoration: "none",
               fontWeight: 600,
-              borderBottom: "1px solid rgba(167,139,250,0.35)",
+              borderBottom: "1px solid var(--border-accent)",
             }}
           >
             GitHub
@@ -241,10 +223,10 @@ const Projects = () => {
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              color: "#67e8f9",
+              color: "var(--accent-cyan)",
               textDecoration: "none",
               fontWeight: 600,
-              borderBottom: "1px solid rgba(103,232,249,0.35)",
+              borderBottom: "1px solid var(--border-accent)",
             }}
           >
             Play Store
@@ -255,10 +237,10 @@ const Projects = () => {
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              color: "#93c5fd",
+              color: "#38bdf8",
               textDecoration: "none",
               fontWeight: 600,
-              borderBottom: "1px solid rgba(147,197,253,0.35)",
+              borderBottom: "1px solid var(--border-accent)",
             }}
           >
             App Store

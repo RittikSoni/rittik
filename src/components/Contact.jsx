@@ -10,6 +10,7 @@ import { SiMedium } from "react-icons/si";
 import {
   discord, github, googlePlay, linkedIn, mail, medium, youtube,
 } from "@/data/socialLinks";
+import { useTheme } from "@/context/ThemeContext";
 
 const SOCIALS = [
   { icon: FaGithub,     href: github,       label: "GitHub",     size: 20 },
@@ -25,6 +26,7 @@ const Contact = () => {
   const [visible, setVisible] = useState(false);
   const [hoveredSocial, setHoveredSocial] = useState(null);
   const sectionRef = useRef(null);
+  const { theme } = useTheme();
   const year = new Date().getFullYear();
 
   useEffect(() => {
@@ -42,10 +44,11 @@ const Contact = () => {
       ref={sectionRef}
       style={{
         width: "100%",
-        background: "linear-gradient(180deg, #070b13 0%, #050810 100%)",
+        background: "var(--bg-primary)",
         padding: "96px 0 0",
         position: "relative",
         overflow: "hidden",
+        transition: "background 0.4s ease"
       }}
     >
       {/* Ambient glow */}
@@ -53,7 +56,7 @@ const Contact = () => {
         position: "absolute", top: "-60px", left: "50%",
         transform: "translateX(-50%)", width: "700px", height: "350px",
         borderRadius: "50%",
-        background: "radial-gradient(ellipse at center, rgba(6,182,212,0.09) 0%, transparent 70%)",
+        background: "radial-gradient(ellipse at center, rgba(6,182,212,var(--glow-opacity)) 0%, transparent 70%)",
         pointerEvents: "none",
       }} />
 
@@ -73,7 +76,7 @@ const Contact = () => {
         {/* Label */}
         <p style={{
           fontSize: "0.7rem", fontWeight: 800, letterSpacing: "0.25em",
-          textTransform: "uppercase", color: "#06b6d4", marginBottom: "16px",
+          textTransform: "uppercase", color: "var(--accent-cyan)", marginBottom: "16px",
         }}>
           ✦ &nbsp; Get In Touch
         </p>
@@ -81,8 +84,7 @@ const Contact = () => {
         {/* Heading */}
         <h2 style={{
           fontSize: "clamp(2.2rem, 6vw, 4rem)", fontWeight: 800, lineHeight: 1.1,
-          background: "linear-gradient(90deg, #f1f5f9 0%, #67e8f9 55%, #06b6d4 100%)",
-          WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
+          color: "var(--text-primary)",
           marginBottom: "20px",
         }}>
           Let&apos;s Connect
@@ -90,7 +92,7 @@ const Contact = () => {
 
         {/* Description */}
         <p style={{
-          color: "rgba(148,163,184,0.75)", fontSize: "1.05rem",
+          color: "var(--text-secondary)", fontSize: "1.05rem",
           maxWidth: "500px", lineHeight: 1.8, margin: "0 auto 40px",
         }}>
           Whether it&apos;s a project, collaboration, or just a conversation - I&apos;m always open to it.
@@ -127,11 +129,11 @@ const Contact = () => {
           display: "flex", alignItems: "center", gap: "16px",
           margin: "48px auto", maxWidth: "320px",
         }}>
-          <div style={{ flex: 1, height: "1px", background: "rgba(255,255,255,0.08)" }} />
-          <span style={{ fontSize: "0.65rem", color: "rgba(148,163,184,0.35)", letterSpacing: "0.15em", textTransform: "uppercase" }}>
+          <div style={{ flex: 1, height: "1px", background: "var(--border-subtle)" }} />
+          <span style={{ fontSize: "0.65rem", color: "var(--text-muted)", letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 700 }}>
             Find me on
           </span>
-          <div style={{ flex: 1, height: "1px", background: "rgba(255,255,255,0.08)" }} />
+          <div style={{ flex: 1, height: "1px", background: "var(--border-subtle)" }} />
         </div>
 
         {/* Social icons — clean row */}
@@ -160,12 +162,12 @@ const Contact = () => {
                     alignItems: "center",
                     justifyContent: "center",
                     background: hoveredSocial === label
-                      ? "rgba(6,182,212,0.14)"
-                      : "rgba(255,255,255,0.04)",
+                      ? "var(--card-hover-bg)"
+                      : "var(--card-bg)",
                     border: hoveredSocial === label
-                      ? "1px solid rgba(6,182,212,0.45)"
-                      : "1px solid rgba(255,255,255,0.08)",
-                    color: hoveredSocial === label ? "#67e8f9" : "rgba(203,213,225,0.55)",
+                      ? "1px solid var(--border-accent)"
+                      : "1px solid var(--border-subtle)",
+                    color: hoveredSocial === label ? "var(--accent-cyan-light)" : "var(--text-secondary)",
                     transform: hoveredSocial === label ? "translateY(-3px) scale(1.12)" : "none",
                     boxShadow: hoveredSocial === label ? "0 4px 20px rgba(6,182,212,0.2)" : "none",
                     transition: "all 0.25s cubic-bezier(.22,.68,0,1.2)",
@@ -183,12 +185,13 @@ const Contact = () => {
 
       {/* Footer */}
       <div style={{
-        borderTop: "1px solid rgba(255,255,255,0.06)",
+        borderTop: "1px solid var(--border-subtle)",
         padding: "20px 24px",
         display: "flex", alignItems: "center", justifyContent: "center",
         gap: "6px",
-        color: "rgba(100,116,139,0.45)",
+        color: "var(--text-muted)",
         fontSize: "0.75rem", letterSpacing: "0.05em",
+        background: "var(--bg-secondary)",
       }}>
         <span>© {year} Rittik Soni</span>
         <span>·</span>

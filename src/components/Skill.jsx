@@ -19,13 +19,13 @@ const Skill = ({ skillName, imgSrc, imgAlt }) => {
         padding: "22px 16px 18px",
         borderRadius: "18px",
         background: hovered
-          ? "linear-gradient(135deg, rgba(6,182,212,0.14) 0%, rgba(8,145,178,0.08) 100%)"
-          : "rgba(255,255,255,0.03)",
+          ? "var(--card-hover-bg)"
+          : "var(--card-bg)",
         border: hovered
-          ? "1px solid rgba(6,182,212,0.5)"
-          : "1px solid rgba(255,255,255,0.07)",
+          ? "1px solid var(--border-accent)"
+          : "1px solid var(--border-subtle)",
         boxShadow: hovered
-          ? "0 0 0 4px rgba(6,182,212,0.08), 0 8px 32px rgba(6,182,212,0.15), 0 2px 8px rgba(0,0,0,0.5)"
+          ? "0 0 0 4px var(--border-subtle), 0 8px 32px rgba(6,182,212,0.15), 0 2px 8px rgba(0,0,0,0.5)"
           : "0 2px 12px rgba(0,0,0,0.3)",
         transform: hovered ? "translateY(-6px) scale(1.07)" : "translateY(0) scale(1)",
         transition: "all 0.32s cubic-bezier(.22,.68,0,1.2)",
@@ -81,7 +81,7 @@ const Skill = ({ skillName, imgSrc, imgAlt }) => {
         style={{
           fontSize: "0.7rem",
           fontWeight: 700,
-          color: hovered ? "#67e8f9" : "rgba(203,213,225,0.65)",
+          color: hovered ? "var(--accent-cyan-light)" : "var(--text-secondary)",
           letterSpacing: "0.05em",
           textAlign: "center",
           transition: "color 0.25s",

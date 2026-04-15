@@ -24,10 +24,11 @@ const OpenSourceContributions = () => {
       ref={sectionRef}
       style={{
         width: "100%",
-        background: "linear-gradient(180deg, #060a12 0%, #080c14 60%, #050810 100%)",
+        background: "var(--bg-primary)",
         padding: "96px 0 80px",
         position: "relative",
         overflow: "hidden",
+        transition: "background 0.4s ease"
       }}
     >
       {/* Ambient glow */}
@@ -40,7 +41,7 @@ const OpenSourceContributions = () => {
           width: "600px",
           height: "400px",
           borderRadius: "50%",
-          background: "radial-gradient(ellipse at center, rgba(6,182,212,0.09) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse at center, rgba(6,182,212,var(--glow-opacity)) 0%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
@@ -53,7 +54,7 @@ const OpenSourceContributions = () => {
           width: "400px",
           height: "300px",
           borderRadius: "50%",
-          background: "radial-gradient(ellipse at center, rgba(6,182,212,0.06) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse at center, rgba(6,182,212,var(--glow-opacity)) 0%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
@@ -78,7 +79,7 @@ const OpenSourceContributions = () => {
               fontWeight: 800,
               letterSpacing: "0.25em",
               textTransform: "uppercase",
-              color: "#06b6d4",
+              color: "var(--accent-cyan)",
               marginBottom: "10px",
             }}
           >
@@ -89,10 +90,7 @@ const OpenSourceContributions = () => {
               fontSize: "clamp(2rem, 5vw, 3.2rem)",
               fontWeight: 800,
               lineHeight: 1.1,
-              background: "linear-gradient(90deg, #f1f5f9 0%, #67e8f9 55%, #06b6d4 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
+              color: "var(--text-primary)",
               marginBottom: "16px",
             }}
           >
@@ -100,7 +98,7 @@ const OpenSourceContributions = () => {
           </h2>
           <p
             style={{
-              color: "rgba(148,163,184,0.8)",
+              color: "var(--text-secondary)",
               fontSize: "1rem",
               maxWidth: "520px",
               lineHeight: 1.75,

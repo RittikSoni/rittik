@@ -3,10 +3,11 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaGooglePlay, FaApple, FaGithub, FaYoutube, FaExternalLinkAlt } from "react-icons/fa";
-
+import { useTheme } from "@/context/ThemeContext";
 
 const ProjectItem = ({ title, description, image, sourceCode, projectLink, appStoreLink, youtubeLink, websiteLink, alt, tags = [], category, featured }) => {
   const [hovered, setHovered] = useState(false);
+  const { theme } = useTheme();
 
   return (
     <div
@@ -16,11 +17,11 @@ const ProjectItem = ({ title, description, image, sourceCode, projectLink, appSt
         position: "relative",
         borderRadius: "20px",
         overflow: "hidden",
-        background: "rgba(15,15,25,0.72)",
-        border: hovered ? "1.5px solid rgba(6,182,212,0.6)" : "1.5px solid rgba(255,255,255,0.08)",
+        background: "var(--card-bg)",
+        border: hovered ? "1.5px solid var(--accent-cyan-light)" : "1.5px solid var(--border-subtle)",
         boxShadow: hovered
           ? "0 8px 48px 0 rgba(6,182,212,0.22), 0 2px 8px rgba(0,0,0,0.5)"
-          : "0 2px 24px rgba(0,0,0,0.35)",
+          : "0 2px 24px rgba(0,0,0,0.15)",
         transition: "border 0.35s ease, box-shadow 0.35s ease, transform 0.35s cubic-bezier(.22,.68,0,1.2)",
         transform: hovered ? "translateY(-6px) scale(1.012)" : "translateY(0) scale(1)",
         cursor: "pointer",
@@ -51,8 +52,6 @@ const ProjectItem = ({ title, description, image, sourceCode, projectLink, appSt
         </div>
       )}
 
-
-
       {/* Project Image */}
       <div
         style={{
@@ -70,7 +69,9 @@ const ProjectItem = ({ title, description, image, sourceCode, projectLink, appSt
             objectFit: "cover",
             transition: "transform 0.55s cubic-bezier(.22,.68,0,1.1), filter 0.4s ease",
             transform: hovered ? "scale(1.07)" : "scale(1)",
-            filter: hovered ? "brightness(0.28) blur(1.5px)" : "brightness(0.82)",
+            filter: theme === 'dark' 
+              ? (hovered ? "brightness(0.28) blur(1.5px)" : "brightness(0.82)")
+              : (hovered ? "brightness(0.4) blur(1.5px)" : "brightness(0.95)")
           }}
         />
 
@@ -79,7 +80,9 @@ const ProjectItem = ({ title, description, image, sourceCode, projectLink, appSt
           style={{
             position: "absolute",
             inset: 0,
-            background: "linear-gradient(180deg, transparent 40%, rgba(10,10,20,0.95) 100%)",
+            background: theme === 'dark' 
+              ? "linear-gradient(180deg, transparent 40%, rgba(10,10,20,0.95) 100%)"
+              : "linear-gradient(180deg, transparent 40%, rgba(255,255,255,0.7) 100%)",
             pointerEvents: "none",
           }}
         />
@@ -102,7 +105,7 @@ const ProjectItem = ({ title, description, image, sourceCode, projectLink, appSt
         >
           <p
             style={{
-              color: "rgba(255,255,255,0.88)",
+              color: "#fff",
               fontSize: "0.82rem",
               lineHeight: 1.65,
               textAlign: "center",
@@ -115,7 +118,9 @@ const ProjectItem = ({ title, description, image, sourceCode, projectLink, appSt
             }}
           >
             {description}
-          </p>          {/* Action buttons */}
+          </p>
+
+          {/* Action buttons */}
           <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", justifyContent: "center" }}>
             {projectLink && (
               <Link href={projectLink} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
@@ -246,14 +251,14 @@ const ProjectItem = ({ title, description, image, sourceCode, projectLink, appSt
       <div style={{ padding: "14px 18px 16px" }}>
         <h3
           style={{
-            color: "#f1f5f9",
+            color: "var(--text-primary)",
             fontSize: "1rem",
             fontWeight: 700,
             marginBottom: "8px",
             letterSpacing: "0.01em",
             lineHeight: 1.3,
             transition: "color 0.25s",
-            ...(hovered ? { color: "#67e8f9" } : {}),
+            ...(hovered ? { color: "var(--accent-cyan-light)" } : {}),
           }}
         >
           {title}
@@ -270,9 +275,9 @@ const ProjectItem = ({ title, description, image, sourceCode, projectLink, appSt
                   fontWeight: 600,
                   letterSpacing: "0.08em",
                   textTransform: "uppercase",
-                  color: "rgba(203,213,225,0.7)",
-                  background: "rgba(255,255,255,0.06)",
-                  border: "1px solid rgba(255,255,255,0.1)",
+                  color: "var(--text-secondary)",
+                  background: "var(--card-hover-bg)",
+                  border: "1px solid var(--border-subtle)",
                   borderRadius: "6px",
                   padding: "2px 8px",
                 }}
