@@ -14,6 +14,7 @@ const NAV_LINKS = [
   { label: "Skills",   href: "/#skills" },
   { label: "Projects", href: "/#projects" },
   { label: "Videos",   href: "/#tech-posts" },
+  { label: "Featured", href: "/#featured" },
   { label: "OSS",      href: "/#open-source" },
   { label: "R&D",      href: "/#r&d" },
   { label: "Contact",  href: "/#contact" },

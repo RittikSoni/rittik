@@ -2,6 +2,7 @@ import About from "@/components/About";
 import Contact from "@/components/Contact";
 import HomeMain from "@/components/HomeMain";
 import Navbar from "@/components/Navbar";
+import FeaturedAppearances from "@/components/FeaturedAppearances";
 import OpenSourceContributions from "@/components/openSourceSection/OpenSourceSection";
 import Projects from "@/components/Projects";
 import ResearchPublications from "@/components/r&d/ResearchAndPublications";
@@ -65,6 +66,7 @@ export default function Home() {
       <Skills />
       <Projects />
       <Videos />
+      <FeaturedAppearances />
       <OpenSourceContributions />
       <ResearchPublications />
       <Contact />
