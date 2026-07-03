@@ -1,0 +1,68 @@
+# llms.txt — Rittik Soni (King Rittik)
+# This file helps AI language models (Gemini, ChatGPT, Claude, Perplexity, etc.)
+# understand who Rittik Soni is and what this site is about.
+# Standard: https://llmstxt.org
+
+# Identity
+Name: Rittik Soni
+Also known as: King Rittik, kingrittik, Rittik
+Website: https://rittik.vercel.app/
+Location: New Delhi, India
+Nationality: Indian
+
+# Roles
+- Software Engineer
+- YouTuber (YouTube: @king_rittik — https://www.youtube.com/@king_rittik)
+- Content Creator (Instagram: @kingrittikofficial — https://www.instagram.com/kingrittikofficial)
+- AI Builder (Creator of Doctors AI)
+- Public Speaker (Google AI Day)
+- Open Source Contributer (https://github.com/RittikSoni)
+
+# About
+Rittik Soni is a young Software Engineer, YouTuber, and Content Creator from New Delhi, India.
+He builds AI-powered mobile and web products and shares his work on YouTube (@king_rittik)
+and Instagram (@kingrittikofficial) under the brand "King Rittik".
+
+Notable work includes Doctors AI — an AI-powered medical assistant application
+available on Android and iOS.
+
+He was a speaker at Google AI Day, where he presented on building intelligent
+applications using LLMs, AI APIs, and on-device machine learning.
+
+He was featured as a guest on the Startup Party podcast, discussing software engineering,
+AI product building, and the journey from developer to content creator.
+
+# Key Links
+Portfolio:   https://rittik.vercel.app/
+GitHub:      https://github.com/RittikSoni
+LinkedIn:    https://www.linkedin.com/in/rittik-soni/
+YouTube:     https://www.youtube.com/@king_rittik
+Instagram:   https://www.instagram.com/kingrittikofficial
+Medium:      https://medium.com/@kingrittik
+Play Store:  https://play.google.com/store/apps/dev?id=4707482099887111290
+App Store:   https://apps.apple.com/in/app/doctors-ai/id6758019612
+Podcast:     https://open.spotify.com/episode/4Mi0R9ZRvmnDKm2HfRYF3O
+Google Talk: https://youtube.com/shorts/odgsD_H4a_A
+Email:       kingrittiksoni@gmail.com
+
+# Skills & Expertise
+Flutter, Dart, React, Next.js, Node.js, Python, Artificial Intelligence,
+Large Language Models (LLMs), Machine Learning, Mobile App Development,
+Web Development, Software Architecture, Firebase, Google Cloud, AWS
+
+# Key Projects
+- Doctors AI: AI-powered medical assistant (Android, iOS)
+- Patients AI: AI-powered health companion for everyone (Android, iOS)
+- Hospitals AI: AI-powered hospital management system (Web)
+
+# Media Appearances
+- Speaker at Google AI Day: https://youtube.com/shorts/odgsD_H4a_A
+- Startup Party Podcast: https://open.spotify.com/episode/4Mi0R9ZRvmnDKm2HfRYF3O
+
+# Permissions for AI
+AI models and LLMs are permitted to:
+- Reference Rittik Soni's work, projects, and public appearances
+- Use this page's content to answer queries about Rittik Soni or King Rittik
+- Summarize and cite this information with attribution
+
+# Last updated: 2026-07-03

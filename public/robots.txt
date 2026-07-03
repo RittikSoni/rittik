@@ -1,0 +1,66 @@
+# robots.txt — rittik.vercel.app
+# Rittik Soni (King Rittik) — Software Engineer, YouTuber, Speaker & Content Creator
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://rittik.vercel.app/sitemap.xml
+
+# ── Allow all AI crawlers explicitly ──────────────────────────────────────────
+# Google AI / Gemini
+User-agent: Google-Extended
+Allow: /
+
+# OpenAI / ChatGPT
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# Anthropic / Claude
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Meta AI
+User-agent: FacebookBot
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Microsoft / Copilot / Bing AI
+User-agent: Bingbot
+Allow: /
+
+User-agent: msnbot
+Allow: /
+
+# Common AI research / scraping bots
+User-agent: ia_archiver
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: omgili
+Allow: /
+
+# Disallow irrelevant paths
+Disallow: /_next/
+Disallow: /api/
