@@ -5,22 +5,30 @@ export const youtubeVideosData = [
   },
   {
     id: 2,
-    videoId: "9KUYvgFxEG8",
+    videoId: "fgYpi-iyP_U",
   },
   {
     id: 3,
-    videoId: "U_BEXuSlpeE",
+    videoId: "adt9A8125S4",
   },
   {
     id: 4,
-    videoId: "cmqIqQkjwU8",
+    videoId: "9KUYvgFxEG8",
   },
   {
     id: 5,
-    videoId: "OLBe7KeVmeI",
+    videoId: "U_BEXuSlpeE",
   },
   {
     id: 6,
+    videoId: "cmqIqQkjwU8",
+  },
+  {
+    id: 7,
+    videoId: "OLBe7KeVmeI",
+  },
+  {
+    id: 8,
     videoId: "rz8yYghVqaY",
   },
 ];

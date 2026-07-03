@@ -46,14 +46,13 @@ const VideoItem = ({ videoId, featured = false }) => {
       ) : (
         <>
           {/* Thumbnail */}
-          <img
+          <Image
             src={thumb}
             alt="Video thumbnail"
+            fill
+            sizes="(max-width: 768px) 100vw, 33vw"
             style={{
-              width: "100%",
-              height: "100%",
               objectFit: "cover",
-              display: "block",
               transition: "transform 0.55s ease, filter 0.4s ease",
               transform: hovered ? "scale(1.06)" : "scale(1)",
               filter: theme === 'dark' 
