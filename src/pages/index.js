@@ -89,7 +89,7 @@ export default function Home() {
                 name: "Rittik Soni",
                 givenName: "Rittik",
                 familyName: "Soni",
-                alternateName: ["King Rittik", "kingrittik", "KingRittik"],
+                alternateName: ["King Rittik", "kingrittik", "KingRittik", "Rittik", "ritik", "Hrithik", "rittik soni", "RittikSoni"],
                 url: "https://rittik.vercel.app/",
                 image: {
                   "@type": "ImageObject",
@@ -103,6 +103,7 @@ export default function Home() {
                   "Content Creator",
                   "AI Builder",
                   "Speaker",
+                  "Open Source Developer",
                 ],
                 description:
                   "Rittik Soni, known as King Rittik, is a Software Engineer, YouTuber and Content Creator from Delhi, India. He is the creator of Doctors AI, a speaker at Google AI Day, and was featured on the Startup Party podcast. He builds AI-powered mobile and web applications.",
@@ -124,7 +125,7 @@ export default function Home() {
                   "Flutter",
                   "React",
                   "Node.js",
-                  "python",
+                  "Python",
                   "Artificial Intelligence",
                   "Large Language Models",
                   "Machine Learning",
@@ -133,8 +134,10 @@ export default function Home() {
                   "YouTube Content Creation",
                   "AI Product Development",
                   "Doctors AI",
+                  "Open Source Development",
                 ],
               },
+
 
               /* 2. WebSite — enables Sitelinks Search Box + AI context */
               {
