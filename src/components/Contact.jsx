@@ -3,18 +3,19 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import {
   FaLinkedinIn, FaYoutube, FaGithub, FaEnvelope,
-  FaGooglePlay, FaApple, FaHeart,
+  FaGooglePlay, FaApple, FaHeart, FaInstagram,
 } from "react-icons/fa";
 import { BsDiscord } from "react-icons/bs";
 import { SiMedium } from "react-icons/si";
 import {
-  discord, github, googlePlay, linkedIn, mail, medium, youtube,
+  discord, github, googlePlay, linkedIn, mail, medium, youtube, instagram,
 } from "@/data/socialLinks";
 import { useTheme } from "@/context/ThemeContext";
 
 const SOCIALS = [
   { icon: FaGithub,     href: github,       label: "GitHub",     size: 20 },
   { icon: FaLinkedinIn, href: linkedIn,      label: "LinkedIn",   size: 19 },
+  { icon: FaInstagram,  href: instagram,     label: "Instagram",  size: 20 },
   { icon: FaYoutube,    href: youtube,       label: "YouTube",    size: 20 },
   { icon: BsDiscord,    href: discord,       label: "Discord",    size: 20 },
   { icon: SiMedium,     href: medium,        label: "Medium",     size: 19 },

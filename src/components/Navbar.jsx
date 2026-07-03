@@ -3,9 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from "react-icons/ai";
-import { FaGithub, FaLinkedinIn, FaYoutube, FaSun, FaMoon } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn, FaYoutube, FaSun, FaMoon, FaInstagram } from "react-icons/fa";
 import { BsGooglePlay } from "react-icons/bs";
-import { github, googlePlay, linkedIn, mail, youtube } from "@/data/socialLinks";
+import { github, googlePlay, linkedIn, mail, youtube, instagram } from "@/data/socialLinks";
 import { useTheme } from "@/context/ThemeContext";
 
 const NAV_LINKS = [
@@ -22,6 +22,7 @@ const NAV_LINKS = [
 const SOCIALS = [
   { icon: <FaYoutube size={16} />,    href: youtube,     label: "YouTube" },
   { icon: <FaLinkedinIn size={16} />, href: linkedIn,    label: "LinkedIn" },
+  { icon: <FaInstagram size={16} />,  href: instagram,   label: "Instagram" },
   { icon: <FaGithub size={16} />,     href: github,      label: "GitHub" },
   { icon: <AiOutlineMail size={17} />,href: mail,        label: "Email" },
   { icon: <BsGooglePlay size={15} />, href: googlePlay,  label: "Play Store" },
