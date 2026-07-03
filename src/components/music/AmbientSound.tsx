@@ -833,23 +833,61 @@ export default function AmbientEffects() {
         className="fixed top-0 left-0 w-full h-full pointer-events-none z-100"
       />
 
-      {/* If hide, add a button to show the controls */}
-      <motion.button
-        onClick={() => setShowControls((prev) => !prev)}
-        whileTap={{ scale: 0.9 }}
-        whileHover={{ scale: 1.05 }}
-        className="p-2 rounded-full bg-black/10 hover:bg-black/20 border border-black/20 text-white shadow-md backdrop-blur-xl fixed bottom-4 right-4 z-101"
-        style={{
-          textShadow: "0 0 6px rgba(0,0,0,0.4)",
-        }}
+      {/* Animated gradient border wrapper for Show Ambient button */}
+      <style>{`
+        @keyframes spin-gradient {
+          0%   { --angle: 0deg; }
+          100% { --angle: 360deg; }
+        }
+        @property --angle {
+          syntax: '<angle>';
+          initial-value: 0deg;
+          inherits: false;
+        }
+        .ambient-glow-ring {
+          animation: spin-gradient 2.8s linear infinite;
+          background: conic-gradient(
+            from var(--angle),
+            #06b6d4, #8b5cf6, #ec4899, #f59e0b, #10b981, #06b6d4
+          );
+          border-radius: 9999px;
+          padding: 2px;
+          box-shadow:
+            0 0 14px rgba(139,92,246,0.55),
+            0 0 28px rgba(6,182,212,0.35),
+            0 0 6px rgba(236,72,153,0.4);
+        }
+        .ambient-glow-inner {
+          background: rgba(0,0,0,0.75);
+          border-radius: 9999px;
+          backdrop-filter: blur(16px);
+          -webkit-backdrop-filter: blur(16px);
+        }
+      `}</style>
+      <motion.div
         animate={{ opacity: !showControls ? 1 : 0 }}
+        style={{ pointerEvents: !showControls ? "auto" : "none" }}
+        className="ambient-glow-ring fixed bottom-4 right-4 z-101"
       >
-        {/* music icon with label in row*/}
-        <div className="flex items-center gap-2">
-          <FiMusic size={18} />
-          Show Ambient
+        <div className="ambient-glow-inner">
+          <motion.button
+            onClick={() => setShowControls((prev) => !prev)}
+            whileTap={{ scale: 0.9 }}
+            whileHover={{ scale: 1.05 }}
+            className="p-2 rounded-full text-white flex items-center gap-2"
+            style={{
+              textShadow: "0 0 6px rgba(0,0,0,0.4)",
+            }}
+          >
+            {/* music icon with label in row*/}
+            <div className="flex items-center gap-2">
+              <FiMusic size={18} />
+              Show Ambient
+            </div>
+          </motion.button>
         </div>
-      </motion.button>
+      </motion.div>
+
 
       {/* Toggle + Controls */}
       <motion.div
